@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="singinSignupBody">
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="text-center mb-4">Create your account</h2>
+
+                        <form id="signupForm" action="/signup" method="post">
+                            <div class="form-container">
+                                <div class="mb-3 input-container">
+                                    <label class='input-labels'>SPONSOR-ID :</label>
+                                    <input type="text" name='sponsorid' class="form-control" id="sponsorIdInput" placeholder="sponsor-id" maxlength="10" required onInput="updateForm()" />
+                                </div>
+
+                                <div class="mb-3 input-container" id="nameContainer" style="display:none;">
+                                    <label class='input-labels'>Name:</label>
+                                    <input type="text" name="name" class="form-control" id="nameInput" placeholder="Full Name" required />
+                                </div>
+
+                                <div class="mb-3 input-container" id="emailContainer" style="display:none;">
+                                    <label class='input-labels'>Email:</label>
+                                    <input type="email" name="email" class="form-control" id="emailInput" placeholder="Email" required />
+                                </div>
+
+                                <div class="mb-3 input-container" id="passwordContainer" style="display:none;">
+                                    <label class='input-labels'>Password:</label>
+                                    <input type="password" name="password" class="form-control" id="password" placeholder="password" required />
+                                </div>
+
+                                <div class="mb-3 input-container" id="confirm-passwordContainer" style="display:none;">
+                                    <label class='input-labels'>Confirm-Password:</label>
+                                    <input type="password" name="confirmpassword" class="form-control" id="confirm-password" placeholder="confirm-password" required />
+                                </div>
+
+                                <div class="mb-3 input-container" id="phoneContainer" style="display:none;">
+                                    <label class='input-labels'>Mobile No:</label>
+                                    <input type="text" class="form-control" name="mobile" id="mobile-noInput" placeholder="mobile no" required />
+                                </div>
+
+                                <div class="mb-3 input-container" id="Aadhar-NoContainer" style="display:none;">
+                                    <label class='input-labels'>Aadhar-No:</label>
+                                    <input type="text" class="form-control" name="aadhar" id="Aadhar-No" placeholder="aadhar-no" required />
+                                </div>
+
+                                <div class="mb-3 input-container" id="AddressContainer" style="display:none;">
+                                    <label class='input-labels'>Address:</label>
+                                    <input type="text" class="form-control" name="address" id="Address" placeholder="address" required />
+                                </div>
+
+                                <div class='mb-3 d-flex justify-content-center align-items-center'>
+                                    <button type="submit" class="btn btn-dark w-100 fs-5">Sign Up</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function updateForm() {
+            var sponsorId = document.getElementById('sponsorIdInput').value;
+            var nameContainer = document.getElementById('nameContainer');
+            var emailContainer = document.getElementById('emailContainer');
+            var passwordContainer = document.getElementById('passwordContainer');
+            var confirmPasswordContainer = document.getElementById('confirm-passwordContainer');
+            var phoneContainer = document.getElementById('phoneContainer');
+            var aadharnoContainer = document.getElementById('Aadhar-NoContainer');
+            var addressContainer = document.getElementById('AddressContainer');
+    
+            // Assuming you have some logic to determine the form fields based on the sponsor ID
+            // This is a basic example, you may need to replace it with your actual logic
+            if (sponsorId.length > 5) {
+                nameContainer.style.display = 'block';
+                emailContainer.style.display = 'block';
+                passwordContainer.style.display = 'block';
+                confirmPasswordContainer.style.display = 'block'; 
+                phoneContainer.style.display = 'block';
+                aadharnoContainer.style.display = 'block';
+                addressContainer.style.display = 'block';
+            } else {
+                nameContainer.style.display = 'none';
+                emailContainer.style.display = 'none';
+                passwordContainer.style.display = 'none';
+                confirmPasswordContainer.style.display = 'none';
+                phoneContainer.style.display = 'none';
+                aadharnoContainer.style.display = 'none';
+                addressContainer.style.display = 'none';
+
+            }
+        }
+    </script>
+    
+</body>
+
+</html>

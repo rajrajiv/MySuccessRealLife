@@ -1,0 +1,170 @@
+
+/* CSS for Sign-in and Sign-Up Page*/
+.signInSignUp-container{
+    border: 1px solid lightgrey;
+    padding: 22px;
+    border-radius: 11px;
+}
+
+.singinSignupBody{
+    background-image: url('images/signinSignupBG.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.input-container{
+    width: 567px;
+}
+
+.google-signin-btn{
+    width: 567px;
+}
+
+.google-logo{
+    width:34px;
+    margin-left: 12px ;
+    margin-right: 12px;
+}
+
+.remember-checkbox{
+    width:500px;
+    position: relative;
+    left: 2px;
+}
+.underlined-link:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.input-labels {
+    font-size: 19px; 
+}
+
+/* responsive CSS for Sign-in and Sign-up Page */
+
+@media only screen and (max-width: 650px) {
+    .signInSignUp-container {
+        padding: 10px;
+    }
+
+    .input-container {
+        width: 100%;
+    }
+
+    .google-signin-btn {
+        width: 100%;
+    }
+
+    .remember-checkbox {
+        width: 100%;
+    }
+
+    .input-labels {
+        font-size: 16px; 
+    }
+}
+
+/* CSS for Navigation Bar */
+.nav-item{
+    text-decoration: none;
+    color: #212529;
+}
+
+.nav-item:hover{
+    cursor: pointer;
+    color: #212529;
+    font-weight:bold;
+
+}
+
+.company-logo{
+    width: 32px;
+}
+
+/* CSS for Home Page Carrousel  */
+
+/* Carousel caption */
+
+.carousel-caption {
+    position: absolute;
+    top: 30%;
+    text-align: center;
+    align-items: center;
+    color: white;
+}
+
+.carousel-slide{
+    width:90%;
+}
+
+.carousel-image{
+    width:90%;
+}
+
+  
+.contactUs-section{
+    background-color: #e8f4ea;
+}
+
+
+.profile-container{
+    margin-top: 80px;
+}
+
+
+
+
+/*Poster Section*/
+
+.poster-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+.poster-text {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.poster-text h4 {
+    color: #007bff; /* Bootstrap primary color */
+}
+.poster-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.poster-images img {
+    margin: 0 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/*Product Section*/
+
+.card-carousel-container {
+    margin-top: 20px;
+}
+.carousel-item {
+    padding: 15px;
+}
+.carousel-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-carousel-title {
+    margin-bottom: 10px;
+}
+
+  
+
+
+
