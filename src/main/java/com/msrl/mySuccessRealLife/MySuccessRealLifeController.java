@@ -15,7 +15,7 @@ public class MySuccessRealLifeController {
 	
 //	String id = null;
 	
-	 @GetMapping("/")
+	 @GetMapping("/home")
 	    public String home() {
 	        // This method returns the name of the view (HTML page) to be rendered
 	        return "index"; // Assuming there's an index.html in your static directory
@@ -24,7 +24,7 @@ public class MySuccessRealLifeController {
 	 @ResponseBody
 	    public String signIn(@PathVariable String id,@PathVariable String password) {
 	        // This method returns the name of the view (HTML page) to be rendered
-		 System.out.println("hi");
+		 if(null!=id)System.out.println("hi"+id);
 		 String msg = msrlService.validateSignIn(id,password);
 		 System.out.println("msg");
 	        return msg; // Assuming there's an index.html in your static directory
