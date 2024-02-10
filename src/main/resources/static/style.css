@@ -1,90 +1,114 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-/* CSS for Sign-in and Sign-Up Page*/
-.signInSignUp-container{
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-image: url("https://codzsword.github.io/bootstrap-sidebar/background-image.jpg");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+}
+
+h3 {
+    font-size: 1.2375rem;
+    color: #FFF;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+/* Responsive Styles */
+@media (min-width:768px) {
+    .content {
+        width: auto;
+    }
+}
+
+/* Sign-in and Sign-up Page Styles */
+.signInSignUp-container {
     border: 1px solid lightgrey;
     padding: 22px;
     border-radius: 11px;
 }
 
-.singinSignupBody{
+.singinSignupBody {
     background-image: url('images/signinSignupBG.jpg');
     background-size: cover;
     background-position: center;
 }
 
-.input-container{
+.input-container,
+.google-signin-btn,
+.remember-checkbox {
     width: 567px;
 }
 
-.google-signin-btn{
-    width: 567px;
-}
-
-.google-logo{
-    width:34px;
-    margin-left: 12px ;
+.google-logo {
+    width: 34px;
+    margin-left: 12px;
     margin-right: 12px;
 }
 
-.remember-checkbox{
-    width:500px;
-    position: relative;
-    left: 2px;
-}
-.underlined-link:hover{
+.underlined-link:hover {
     text-decoration: underline;
     cursor: pointer;
 }
 
 .input-labels {
-    font-size: 19px; 
+    font-size: 19px;
 }
 
-/* responsive CSS for Sign-in and Sign-up Page */
-
+/* Responsive Styles for Sign-in and Sign-up Page */
 @media only screen and (max-width: 650px) {
     .signInSignUp-container {
         padding: 10px;
     }
 
-    .input-container {
-        width: 100%;
-    }
-
-    .google-signin-btn {
-        width: 100%;
-    }
-
+    .input-container,
+    .google-signin-btn,
     .remember-checkbox {
         width: 100%;
     }
 
     .input-labels {
-        font-size: 16px; 
+        font-size: 16px;
     }
 }
 
-/* CSS for Navigation Bar */
-.nav-item{
+/* Navigation Bar Styles */
+.nav-item {
     text-decoration: none;
     color: #212529;
 }
 
-.nav-item:hover{
+.nav-item:hover {
     cursor: pointer;
     color: #212529;
-    font-weight:bold;
-
+    font-weight: bold;
 }
 
-.company-logo{
+.company-logo {
     width: 32px;
+    max-height: 40px; /* Set the maximum height for the logo */
+    margin-right: 10px; /* Add margin to the right of the logo */
+    color: #e9ecef;
 }
 
-/* CSS for Home Page Carrousel  */
-
-/* Carousel caption */
-
+/* Home Page Carousel Styles */
 .carousel-caption {
     position: absolute;
     top: 30%;
@@ -93,29 +117,20 @@
     color: white;
 }
 
-.carousel-slide{
-    width:90%;
+.carousel-slide,
+.carousel-image {
+    width: 90%;
 }
 
-.carousel-image{
-    width:90%;
-}
-
-  
-.contactUs-section{
+.contactUs-section {
     background-color: #e8f4ea;
 }
 
-
-.profile-container{
+.profile-container {
     margin-top: 80px;
 }
 
-
-
-
-/*Poster Section*/
-
+/* Poster Section Styles */
 .poster-container {
     display: flex;
     justify-content: center;
@@ -126,35 +141,39 @@
     border-radius: 5px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
+
 .poster-text {
     width: 100%;
     text-align: center;
     margin-bottom: 20px;
 }
+
 .poster-text h4 {
     color: #007bff; /* Bootstrap primary color */
 }
+
 .poster-images {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 20px;
 }
+
 .poster-images img {
     margin: 0 10px;
     max-width: 100%;
     height: auto;
 }
 
-
-/*Product Section*/
-
+/* Product Section Styles */
 .card-carousel-container {
     margin-top: 20px;
 }
+
 .carousel-item {
     padding: 15px;
 }
+
 .carousel-image {
     max-width: 100%;
     height: auto;
@@ -164,7 +183,99 @@
     margin-bottom: 10px;
 }
 
-  
+/* Sidebar Styles */
+.wrapper {
+    align-items: stretch;
+    display: flex;
+    width: 100%;
+}
 
+#sidebar {
+    max-width: 264px;
+    min-width: 264px;
+    transition: all 0.35s ease-in-out;
+    box-shadow: 0 0 35px 0 rgba(49, 57, 66, 0.5);
+    z-index: 1111;
+}
 
+#sidebar.collapsed {
+    margin-left: -264px;
+}
 
+.main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+}
+
+.sidebar-logo {
+    padding: 1.15rem 1.5rem;
+}
+
+.sidebar-logo a {
+    color: #e9ecef;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.sidebar-nav {
+    padding: 0;
+}
+
+.sidebar-header {
+    color: #e9ecef;
+    font-size: .75rem;
+    padding: 1.5rem 1.5rem .375rem;
+}
+
+a.sidebar-link {
+    padding: .625rem 1.625rem;
+    color: #e9ecef;
+    position: relative;
+    display: block;
+    font-size: 1rem;
+}
+
+.sidebar-link[data-bs-toggle="collapse"]::after {
+    border: solid;
+    border-width: 0 .075rem .075rem 0;
+    content: "";
+    display: inline-block;
+    padding: 2px;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all .2s ease-out;
+}
+
+.sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
+}
+
+.content {
+    flex: 1;
+    max-width: 100vw;
+    width: 100vw;
+}
+
+/* Button Styles */
+.active-button {
+    color: #ffffff;
+    background-color: #28a745;
+    padding: 1px;
+}
+
+.inactive-button {
+    color: #ffffff;
+    background-color: #dc3545;
+    padding: 1px;
+}
+
+.welcome-heading {
+    font-size: 2vm;
+}
