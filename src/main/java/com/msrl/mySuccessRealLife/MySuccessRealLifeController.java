@@ -1,10 +1,9 @@
 package com.msrl.mySuccessRealLife;
 
+import com.msrl.mySuccessRealLife.service.MsrlSignUpService;
+import com.msrl.mySuccessRealLife.service.MsrlUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.msrl.mySuccessRealLife.service.MsrlSignInService;
 
@@ -26,6 +25,34 @@ public class MySuccessRealLifeController {
         String msg = msrlService.validateSignIn(id, password);
         System.out.println("msg");
         return msg;
+    }
+
+
+    MsrlSignUpService signUpService;
+
+    @GetMapping("/signUp/{sponser_id}")
+    public MsrlSignUpService signUpDetails(String sponsor_id, String name, String email, String password, String re_password, String mobile_no, String aadhaar_no, String pan_no, String address)
+    {
+
+        return signUpService;
+        //new MsrlSignUpService(sponsor_id = "123", name = "Utsav", email = "utsav@gmail.com", password = "123" , re_password = "123, mobile_no = "1234567891", aadhaar_no = "1236547554", pan_no = "YKB2400k", address = "Dehradun");
+    }
+
+    @PostMapping("/signUp")
+
+    public String signUp(@RequestBody MsrlSignUpService signUpService )
+    {
+        this.signUpService=signUpService;
+        return "SignUp successfull";
+    }
+
+    MsrlUserService user;
+
+    @GetMapping("/User")
+
+    public String userDetails(String sponsor_id, String name,String total_user, String active_user, String inactive_user, String total_direc,String reward, String category, String joining_date, String activation_date) {
+
+        return "Utsav";
     }
 
 }
