@@ -14,7 +14,17 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MsrlSignInService {
-    @Autowired
+
+    UserConstant user = new UserConstant();
+    String name = null;
+    public String validateSignIn(String msrlId, String password) {
+        if (msrlId.equals(user.msrlId) && password.equals(user.msrlPassword)) {
+            return user.userName;
+        } else {
+            return name;
+        }
+    }
+   /* @Autowired
 	DataSourceConfig dataSource;
     UserConstant user = new UserConstant();
     String name = null;
@@ -49,6 +59,6 @@ public class MsrlSignInService {
         } else {
             return name;
         }
-    }
+    }*/
 }
 
