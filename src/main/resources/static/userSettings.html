@@ -1,116 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MySuccessRealLife</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-image: url('images/background-image.jpg');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    color: #e9ecef;
+}
+.user-detail {
+    color: #e9ecef;
+    margin-bottom: 20px;
+}
+
+.detail-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.detail-label {
+    flex: 1;
+    font-weight: bold;
+}
+
+.detail-value {
+    flex: 2;
+}
+
+.edit-btn {
+    margin-left: 10px;
+}
+
+.delete-btn {
+    margin-top: 10px;
+}
+</style>
 <body>
-    <div class="container-fluid">
-       <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="images/companyLogo.png" alt="Company Logo" class="company-logo">
-                <span class="text-dark mx-1">MySuccessRealLife</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
 
-                    <li class="nav-item text-muted">
-                        <a class="nav-link" href="index.html">Generate New ID</a>
-                    </li>
-                    <li class="nav-item text-muted">
-                        <a class="nav-link" href="#products-id">Reward History</a>
-                    </li>
-
-                    <li class="nav-item text-muted">
-                        <a class="nav-link" href="#about-id">Redeem Coins</a>
-                    </li>
-
-                    <li class="nav-item text-muted">
-                        <a class="nav-link" href="userSettings.html">Settings</a>
-                    </li>
-                </ul>
-                <div>
-                    <a href="" class="btn btn-dark signoutBtn">Sign Out</a>
-                </div>
-            </div>
+    <div class="container">
+        <h5 class="user-detail text-decoration-underline">User Details</h5>
+        <div class="detail-row">
+            <div class="detail-label">Name</div>
+            <div class="detail-value">abcdefgh rthuiogssg</div>
+      
         </div>
-    </nav>
 
-    <br>
-    <br>
-    <br>
-    <br>
+        <div class="detail-row">
+            <div class="detail-label">Aadhar No.</div>
+            <div class="detail-value">xxxx xxxx 2233</div>
+        </div>
 
-        <div class="container">
-            <h5 class="text-decoration-underline">User Details</h5>
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <td>Name</td>
-                            <td>abcdefgh rthuiogssg</td>
-                            <td><button class="btn btn-success">Edit</button></td>
-                          </tr>
-                      <tr>
-                        <td>E-mail</td>
-                        <td>vatsalthapliyal4444@gmail.com</td>
-                        <td><button class="btn btn-success">Edit</button></td>
-                      </tr>
-                      <tr>
-                        <td>Password</td>
-                        <td>**********</td>
-                        <td><button class="btn btn-success">Edit</button></td>
-                      </tr>
-                      <tr>
-                        <td>Mobile No.</td>
-                        <td>800000000</td>
-                        <td><button class="btn btn-success">Edit</button></td>
-                      </tr>
-                      
-                      <tr>
-                        <td>Address</td>
-                        <td>Address..........................</td>
-                        <td><button class="btn btn-success">Edit</button></td>
-                      </tr>
+        <div class="detail-row">
+            <div class="detail-label">Pan No.</div>
+            <div class="detail-value">xxxx xxxx 2233</div>
+        </div>
 
-                      <tr>
-                        <td>Aadhar No.</td>
-                        <td>xxxx xxxx 2233</td>
-                        <td></td>
-                      </tr>
-                      <tr>
+        <div class="detail-row">
+            <div class="detail-label">MSRL ID</div>
+            <div class="detail-value">0000000000</div>
+        </div>
 
-                        <td>MSRL ID</td>
-                        <td>0000000000</td>
-                        <td></td>
-                      </tr>
+        <div class="detail-row">
+            <div class="detail-label">Sponsor's ID</div>
+            <div class="detail-value">0000000000</div>
+        </div>
 
-                      <tr>
-                        <td>Sponsor's ID</td>
-                        <td>0000000000</td>
-                        <td></td>
-                      </tr>
-                      
-                      <tr>
-                        <td></td>
-                        <td class="text-danger">Do you want to delete your account?</td>
-                        <td><button class="btn btn-danger">Delete</button></td>
-                      </tr>
-                      
-                    </tbody>
-                  </table>
+        <div class="detail-row">
+            <div class="detail-label">Address</div>
+            <div class="detail-value">Address..........................</div>
+            <button class="btn btn-success edit-btn">Edit</button>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">E-mail</div>
+            <div class="detail-value">ashutoshsingh2011@gmail.com</div>
+            <button class="btn btn-success edit-btn">Edit</button>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">Password</div>
+            <div class="detail-value">**********</div>
+            <button class="btn btn-success edit-btn">Edit</button>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">Date of Birth</div>
+            <div class="detail-value">
+                <label for="dob" class="form-label">DOB</label>
+                <input type="date" class="form-control" id="dob" name="dob" style="width: 150px;">
             </div>
+            <button class="btn btn-success edit-btn">Edit</button>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">Mobile No.</div>
+            <div class="detail-value">800000000</div>
+            <button class="btn btn-success edit-btn">Edit</button>
+        </div>
+        <br>
+
+        <div class="text-danger delete-btn">
+            <div>Do you want to delete your account?</div><br>
+            <button class="btn btn-danger">Delete</button>
+        </div>
     </div>
 
     <!-- Bootstrap JavaScript (optional, if you use Bootstrap components that require JavaScript) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

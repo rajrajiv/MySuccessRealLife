@@ -1,15 +1,15 @@
 package com.msrl.mySuccessRealLife.service;
 
-import com.msrl.mySuccessRealLife.configuration.DataSourceConfig;
+//import com.msrl.mySuccessRealLife.configuration.DataSourceConfig;
 import com.msrl.mySuccessRealLife.constant.UserConstant;
 
-import java.sql.Connection;
+/*import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;*/
 import org.springframework.stereotype.Service;
 
 @Service

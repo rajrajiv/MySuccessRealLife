@@ -12,9 +12,15 @@ body {
     margin: 0;
     background-image: url('images/background-image.jpg');
     background-repeat: no-repeat;
-    background-position: center bottom;
+    background-position: center;
     background-size: cover;
+    height: 100vh; /* Set the height to 100% of the viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
 
 h3 {
     font-size: 1.2375rem;
