@@ -30,37 +30,41 @@
                             <div class="form-container">
                                 <div class="mb-3 input-container">
                                     <label class='input-labels'>SPONSOR-ID :</label>
-                                    <input type="text" name='sponsorid' class="form-control" id="sponsorIdInput" placeholder="sponsor-id" maxlength="10" required onInput="updateForm()" />
+                                    <input type="text" name='sponsorid' class="form-control" id="sponsorIdInput" placeholder="sponsor-id" maxlength="10" required onInput="updateForm()" style="width:90%" />
+                                </div>
+                                <div class="mb-3 input-container" id="nameContainer" style="display:none;">
+                                    <label class='input-labels'> Sponsor Name:</label>
+                                    <input type="text" name="name" class="form-control" id="sponsorInput" placeholder="Full Name" required style="width:90%" />
                                 </div>
 
                                 <div class="mb-3 input-container" id="nameContainer" style="display:none;">
                                     <label class='input-labels'>Name:</label>
-                                    <input type="text" name="name" class="form-control" id="nameInput" placeholder="Full Name" required />
+                                    <input type="text" name="name" class="form-control" id="nameInput" placeholder="Full Name" required style="width:90%" />
                                 </div>
 
                                 <div class="mb-3 input-container" id="emailContainer" style="display:none;">
                                     <label class='input-labels'>Email:</label>
-                                    <input type="email" name="email" class="form-control" id="emailInput" placeholder="Email" required />
+                                    <input type="email" name="email" class="form-control" id="emailInput" placeholder="Email" required style="width:90%" />
                                 </div>
 
                                 <div class="mb-3 input-container" id="passwordContainer" style="display:none;">
                                     <label class='input-labels'>Password:</label>
-                                    <input type="password" name="password" class="form-control" id="password" placeholder="password" required />
+                                    <input type="password" name="password" class="form-control" id="password" placeholder="password" required style="width:90%"/>
                                 </div>
 
                                 <div class="mb-3 input-container" id="confirm-passwordContainer" style="display:none;">
                                     <label class='input-labels'>Confirm-Password:</label>
-                                    <input type="password" name="confirmpassword" class="form-control" id="confirm-password" placeholder="confirm-password" required />
+                                    <input type="password" name="confirmpassword" class="form-control" id="confirm-password" placeholder="confirm-password" required style="width:90%" />
                                 </div>
 
                                 <div class="mb-3 input-container" id="dobContainer" style="display:none;">
                                     <label class='input-labels'>Date of Birth:</label>
-                                    <input type="date" class="form-control" id="dobInput" placeholder="Full Name" required />
+                                    <input type="date" class="form-control" id="dobInput" placeholder="Full Name" required style="width:90%" />
                                 </div>
 
                                 <div class="mb-3 input-container" id="countryContainer" style="display:none;">
-                                    <label class='input-labels'>Country:</label>
-                                    <select class="form-select" id="country" name="country">
+                                    <label class='input-labels'  >Country:</label>
+                                    <select class="form-select" id="country" name="country" style="width:90%">
                                         <option>select country</option>
                                         <option value="AF">Afghanistan</option>
                                         <option value="AS">American Samoa</option>
@@ -298,7 +302,7 @@
                                 </div>
                                 <div class="mb-3 input-container" id="stateContainer" style="display:none;">
                                     <label class='input-labels'>State:</label>
-                                    <select class="form-select" id="state" name="State">
+                                    <select class="form-select" id="state" name="State" style="width:90%">
                                         <option value="">Select state</option>
                                         <option value="AN">Andaman and Nicobar Islands</option>
                                         <option value="AP">Andhra Pradesh</option>
@@ -342,21 +346,21 @@
 
                                 <div class="mb-3 input-container" id="phoneContainer" style="display:none;">
                                     <label class='input-labels'>Mobile No:</label>
-                                    <input type="text" class="form-control" name="mobile" id="mobile-noInput" placeholder="mobile no" required />
+                                    <input type="text" class="form-control" name="mobile" id="mobile-noInput" placeholder="mobile no" required style="width:90%" />
                                 </div>
 
                                 <div class="mb-3 input-container" id="Aadhar-NoContainer" style="display:none;">
                                     <label class='input-labels'>Aadhar-No:</label>
-                                    <input type="text" class="form-control" name="aadhar" id="Aadhar-No" placeholder="aadhar-no" required />
+                                    <input type="text" class="form-control" name="aadhar" id="Aadhar-No" placeholder="aadhar-no" required style="width:90%"/>
                                 </div>
 
                                 <div class="mb-3 input-container" id="AddressContainer" style="display:none;">
                                     <label class='input-labels'>Address:</label>
-                                    <input type="text" class="form-control" name="address" id="Address" placeholder="address" required />
+                                    <input type="text" class="form-control" name="address" id="Address" placeholder="address" required style="width:90%"/>
                                 </div>
 
                                 <div class='mb-3 d-flex justify-content-center align-items-center'>
-                                    <button type="submit" class="btn btn-dark w-100 fs-5">Sign Up</button>
+                                    <button type="submit" class="btn btn-dark w-100 fs-5">Next</button>
                                 </div>
                             </div>
                         </form>
@@ -384,7 +388,7 @@
 
             // Assuming you have some logic to determine the form fields based on the sponsor ID
             // This is a basic example, you may need to replace it with your actual logic
-            if (sponsorId.length > 9) {
+            if (sponsorId.length > 0) {
                 nameContainer.style.display = 'block';
                 emailContainer.style.display = 'block';
                 passwordContainer.style.display = 'block';
