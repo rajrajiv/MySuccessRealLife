@@ -28,9 +28,16 @@ public class QueryDataBase {
 	String dbPassword = null;
 
 	
-	public ResultSet fetchFromDataBase(String queryParam1, DataSourceConfig dataSource) {
+	public ResultSet fetchFromDataBase(String queryParam1, DataSourceConfig dataSource, String flow) {
 
-    	String query = userConstant.checkAdhaarExist;
+    	String query = null;
+    	if("checkadhaar".equals(flow)) {
+    		query = userConstant.checkAdhaarExist;
+    	}
+    	else if("verifysponsor".equals(flow)) {
+    		query = userConstant.verifysponsorId;
+    	}
+    	
     	setDataSource(dataSource);
     	ResultSet rs =null;
     	try
@@ -39,8 +46,8 @@ public class QueryDataBase {
 	        PreparedStatement ps = conn.prepareStatement(query);
 			ps.setString(1, queryParam1);
 			
-			System.out.println("queriying with adhaar no::"+queryParam1);
-			System.out.println("prepared statement with adhaar no::"+ps.toString());
+			System.out.println("queriying with adhaar no/sponsorid::"+queryParam1+": with flow as:"+flow);
+			System.out.println("prepared statement with adhaar no/sponsorid::"+ps.toString());
 			
 	        rs = ps.executeQuery();
 	        System.out.println("Result set after execution is:"+rs);

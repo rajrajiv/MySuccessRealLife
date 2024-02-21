@@ -24,8 +24,7 @@ public class MsrlSignUpService {
 	
 	private UserRegistration userRegistration = null;
 	private Integer newMsrlId = null;
-	private QueryDataBase queryDb = new QueryDataBase();
-	ResultSet rs ;
+	private ResultSet rs ;
 
 	public String reigsterUser(JsonNode signUpNode) {
 		// TODO Auto-generated method stub
@@ -64,26 +63,26 @@ public class MsrlSignUpService {
 	}
 
 	private void registerNewUser() {
-		// TODO Auto-generated method stub
-		System.out.println("user doest not Exist !! Registering new user");
 		
+		
+		QueryDataBase queryDb = new QueryDataBase();
+		System.out.println("user doest not Exist !! Registering new user");
 		queryDb.insertIntoDataBase(userRegistration, dataSource);
+		
+		if(null != queryDb) {
+			queryDb = null;
+		}
 		
 		
 	}
-
-//	private Integer generateMsrlId() {
-//		return newMsrlId;
-//		// TODO Auto-generated method stub
-//		
-//	}
 
 	private boolean checkIfUserExists(String adhaarNumber) throws SQLException {
 		// TODO Auto-generated method stub
 		
 		boolean isExist = false;
+		QueryDataBase queryDb = new QueryDataBase();
     	
-		rs = queryDb.fetchFromDataBase(adhaarNumber, dataSource);
+		rs = queryDb.fetchFromDataBase(adhaarNumber, dataSource,"checkadhaar");
 		try {
 			if(null!= rs) {
 				while(rs.next()) {
@@ -91,16 +90,15 @@ public class MsrlSignUpService {
 					isExist = true;
 					break;
 				}
-				
 			}
 		}
 		finally {
 			if(null!= rs) {
 				rs = null;
 			}
-//			if(null != queryDb) {
-//				queryDb = null;
-//			}
+			if(null != queryDb) {
+				queryDb = null;
+			}
 		}
 		
 		return isExist;
