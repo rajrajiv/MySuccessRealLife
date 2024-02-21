@@ -18,40 +18,49 @@ public class MsrlSignInService {
 	@Autowired
 	DataSourceConfig dataSource;
 	
-    UserConstant user = new UserConstant();
+//    UserConstant user = new UserConstant();
     String sponsorName = null;
+    String userName = null;
     
     public String validateSignIn(String msrlId, String password) {
     	
-    	String userStatement = "SELECT * FROM USER_DETAILS";
-    	String url = dataSource.getUrl();
-    	String userName = dataSource.getUserName();
-    	String dbPassword = dataSource.getPassword();
-    	System.out.println("url is "+url);
+    	String fetchedPassword = null;
+    	boolean isExist = false;
+    	ResultSet rs;
+    	QueryDataBase queryDb = new QueryDataBase();
+    	rs = queryDb.fetchFromDataBase(msrlId, dataSource, "signin");
     	
-    	try (Connection conn = DriverManager.getConnection(url, userName, dbPassword); 
-    	        PreparedStatement ps = conn.prepareStatement(userStatement); 
-    	        ResultSet rs = ps.executeQuery()) {
-    		System.out.println("outside while");
-    	        while (rs.next()) {
-    	            long id = rs.getLong("msrlid");
-    	            System.out.println("user ID is  "+id);
-    	            String name = rs.getString("FirstName");
-    	            System.out.println("user name is "+name);
-    	            String lastName = rs.getString("LastName");
-
-    	            // do something with the extracted data...
-    	        }
-    	} catch (SQLException e) {
-    	    // handle the exception
+    	if(null != rs) {
+    		
+    		try {
+				while (rs.next()) {
+					
+					fetchedPassword = rs.getString("password");
+					System.out.println("password after query is :::"+password);
+					
+					if(null != fetchedPassword && fetchedPassword.equals(password)) {
+						userName = rs.getString("username");
+						System.out.println("userName after query is :::"+userName);
+						isExist = true;
+					}
+					break;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		finally {
+    			if(null != queryDb) {
+    				queryDb = null;
+    			}
+    		}    		
     	}
-    	
-    	
-        if (msrlId.equals(user.msrlId) && password.equals(user.msrlPassword)) {
-            return user.userName;
-        } else {
-            return userName;
-        }
+		if(!isExist) {
+			return "INVALID USERNAME OR PASSWORD !";
+		}
+		else {
+			return userName;
+		}
     }
     
     public String verifysponsorMethod(String sponsorId) {

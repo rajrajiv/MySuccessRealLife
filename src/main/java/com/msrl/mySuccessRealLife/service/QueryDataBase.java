@@ -34,7 +34,7 @@ public class QueryDataBase {
     	if("checkadhaar".equals(flow)) {
     		query = userConstant.checkAdhaarExist;
     	}
-    	else if("verifysponsor".equals(flow)) {
+    	else if("verifysponsor".equals(flow) || "signin".equals(flow)) {
     		query = userConstant.verifysponsorId;
     	}
     	
