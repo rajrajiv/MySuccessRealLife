@@ -5,12 +5,15 @@ import com.msrl.mySuccessRealLife.service.MsrlUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.msrl.mySuccessRealLife.service.MsrlSignInService;
 
 @RestController
 public class MySuccessRealLifeController {
     @Autowired
     MsrlSignInService msrlService;
+    @Autowired
+    MsrlSignUpService signUpService;
 
     @GetMapping("/home")
     public String home() {
@@ -27,9 +30,6 @@ public class MySuccessRealLifeController {
         return msg;
     }
 
-
-    MsrlSignUpService signUpService;
-
     @GetMapping("/signUp/{sponser_id}")
     public MsrlSignUpService signUpDetails(String sponsor_id, String name, String email, String password, String re_password, String mobile_no, String aadhaar_no, String pan_no, String address)
     {
@@ -40,10 +40,13 @@ public class MySuccessRealLifeController {
 
     @PostMapping("/signUp")
 
-    public String signUp(@RequestBody MsrlSignUpService signUpService )
+    public String signUp(@RequestBody JsonNode signUpNode ) throws Exception
     {
-        this.signUpService=signUpService;
-        return "SignUp successfull";
+        System.out.println("I am here in signup"+signUpNode.toString());
+        
+        String userId = signUpService.reigsterUser(signUpNode);
+        
+        return signUpNode.toString();
     }
 
     MsrlUserService user;

@@ -14,5 +14,10 @@ public class UserConstant {
 	public String category = "middle";
 	public String joining_date = "07/02/2024";
 	public String activation_date = "07/02/2024";
-
+	
+	public String checkAdhaarExist = "SELECT * FROM USER_DETAILS WHERE AdhaarNumber =?";
+	public String insertIntoUserDetails = "INSERT INTO `msrl`.`user_details` (`SponsorID`, "
+			+ "`DateOfBirth`, `Email`, `Password`, `UserName`, `Address`, `MobileNumber`, "
+			+ "`AdhaarNumber`, `Pan`, `Country`, `State`, `JoiningDate`, `userStatus`) "
+			+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 }
