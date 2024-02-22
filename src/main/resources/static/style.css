@@ -1,7 +1,7 @@
 /* Global Styles */
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-*
+*,
 ::after,
 ::before {
     box-sizing: border-box;
@@ -13,7 +13,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 100vh; /* Set the height to 100% of the viewport height */
+    min-height: 100vh; /* Set the height to 100% of the viewport height */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,6 +76,10 @@ li {
 .input-labels {
     font-size: 19px;
 }
+
+
+
+
 
 /* Responsive Styles for Sign-in and Sign-up Page */
 @media only screen and (max-width: 650px) {
