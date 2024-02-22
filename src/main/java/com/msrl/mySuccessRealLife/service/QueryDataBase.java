@@ -22,7 +22,6 @@ import com.msrl.mySuccessRealLife.constant.UserConstant;
 public class QueryDataBase {
 
 	UserConstant userConstant = new UserConstant();
-	Integer id = null;
 	String url = null;
 	String userName = null;
 	String dbPassword = null;
@@ -74,9 +73,9 @@ public class QueryDataBase {
 		
 	}
 
-	public void insertIntoDataBase (UserRegistration userRegistration, DataSourceConfig dataSource) {
+	public Integer insertIntoDataBase (UserRegistration userRegistration, DataSourceConfig dataSource) {
 		
-		
+		Integer id = null;
 		String insertQuery = userConstant.insertIntoUserDetails;
 		ResultSet rs =null;
 		
@@ -127,6 +126,7 @@ public class QueryDataBase {
     		System.out.println("ERROR OCCURRED WHILE INSERTING INTO DATABASE");
     		e.printStackTrace();
     	}
+		return id;
 		
 		
 	}

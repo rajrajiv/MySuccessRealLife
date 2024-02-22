@@ -39,5 +39,9 @@ public class UserRegistration {
     
     @JsonProperty("Address") 
     public String address;
+    
+    @JsonProperty("PinCode") 
+    public String pinCode;
+    
 
 }

@@ -383,10 +383,10 @@
 														<input type="text" class="form-control" name="address" id="Address" placeholder="address" required style="width:70%"/>
 													</div>
 								<div>
-									<button type="submit" id="signupbutton" class="btn btn-dark fs-5" style="width:20%" onclick = "signup();">SignUp</button>
+									<button type="submit" id="signupbutton" class="btn btn-dark fs-5" style="width:20%" onclick = "registerUser();">SignUp</button>
 								</div>
 							</form>
-						</div>
+						</div>						
 					</div>
 				</div>
 			</div>
@@ -417,7 +417,8 @@
 			
             const url = `http://localhost:8080/verify/${sponsorId}`;
             var xhr = new XMLHttpRequest();
-            
+            xhr.open("GET", url, true);
+            xhr.send();
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {
@@ -482,11 +483,58 @@
                     }
                 }
             };
-
-            xhr.open("GET", url, true);
-            xhr.send();
             
         }
+        function registerUser() {
+        	
+        	var sponsorId = document.getElementById('sponsorIdInput').value;
+        	var userName = document.getElementById('nameInput').value;
+        	var dob = document.getElementById('dobInput').value;
+        	var email = document.getElementById('emailInput').value;
+        	var pwd = document.getElementById('password').value;
+        	//var cpwd = document.getElementById('confirm-password').value;
+        	var country = document.getElementById('country').value;
+        	var state = document.getElementById('state').value;
+        	var pincode = document.getElementById('pincodeInput').value;
+        	var mobileNumber = document.getElementById('mobile-noInput').value;
+        	var adhaar = document.getElementById('Aadhar-No').value;
+        	var panNumber = document.getElementById('pan-No').value;
+        	var address = document.getElementById('Address').value;
+        	
+        	var xhr = new XMLHttpRequest();
+        	var url = `http://localhost:8080/signUp`;
+        	xhr.open("POST", url, true);
+        	xhr.setRequestHeader("Content-Type", "application/json");
+        	
+        	xhr.onreadystatechange = function () {
+        		
+        	    if (xhr.readyState === 4 && xhr.status === 200) {
+        	    	const response = xhr.responseText;
+        	    	alert("Welcome To MY SUCCESS REAL LIFE. YOUR MSRL ID IS:"+response);
+        	    	window.location.replace("./signin.html");
+					
+        	    }
+        	};
+        	var data = JSON.stringify(
+        			{
+        				"SponsorID": sponsorId,
+        				"UserName": userName,
+        				"DateOfBirth": dob,
+        				"Email": email,
+        				"Password": pwd,
+        				"Country":country,
+        				"State": state,
+        				"PinCode": pincode,
+        				"MobileNumber": mobileNumber,
+        				"AdhaarNumber": adhaar,
+        				"Pan": panNumber,
+        				"Address": address
+        			}
+        		);
+        	xhr.send(data);
+
+        }
+        
     </script>
 	</body>
 		

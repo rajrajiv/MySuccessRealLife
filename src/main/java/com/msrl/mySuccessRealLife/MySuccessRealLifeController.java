@@ -45,8 +45,10 @@ public class MySuccessRealLifeController {
     {
         System.out.println("I am here in signup"+signUpNode.toString());
         
-        String userId = signUpService.reigsterUser(signUpNode);
-        return signUpNode.toString();
+        Integer userId = signUpService.reigsterUser(signUpNode);
+        System.out.println("MSRLID sending back to Page is ::"+userId);
+        return userId.toString();
+//        return "123";
     }
 
     MsrlUserService user;
