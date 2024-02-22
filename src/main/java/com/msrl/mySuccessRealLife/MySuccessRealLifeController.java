@@ -37,7 +37,7 @@ public class MySuccessRealLifeController {
     	
 //    	System.out.println("Sponser Name returning is ::"+sponsorName);
         return msrlService.verifysponsorMethod(sponsorId);
-        //new MsrlSignUpService(sponsor_id = "123", name = "Utsav", email = "utsav@gmail.com", password = "123" , re_password = "123, mobile_no = "1234567891", aadhaar_no = "1236547554", pan_no = "YKB2400k", address = "Dehradun");
+       
     }
 
     @PostMapping("/signUp")
