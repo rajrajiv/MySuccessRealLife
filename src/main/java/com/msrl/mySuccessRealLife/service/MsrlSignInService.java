@@ -19,7 +19,6 @@ public class MsrlSignInService {
 	DataSourceConfig dataSource;
 	
 //    UserConstant user = new UserConstant();
-    String sponsorName = null;
     String userName = null;
     
     public String validateSignIn(String msrlId, String password) {
@@ -64,7 +63,7 @@ public class MsrlSignInService {
     }
     
     public String verifysponsorMethod(String sponsorId) {
-    	
+    	String sponsorName = null;
     	ResultSet rs;
     	QueryDataBase queryDb = new QueryDataBase();
     	rs = queryDb.fetchFromDataBase(sponsorId, dataSource, "verifysponsor");
@@ -93,11 +92,12 @@ public class MsrlSignInService {
     		}
     		
     	}
+    	System.out.println("sponsorName returning is :::"+sponsorName);
     	if(null == sponsorName) {
     		
     		System.out.println("sponsor ID does not exist");
     		
-    		return "sponsor ID does not exist";
+    		return "NOT PRESENT";
     		
     	}
     	

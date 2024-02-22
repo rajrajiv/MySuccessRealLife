@@ -396,8 +396,10 @@
 
     <script>
         function verifySponsor() {
+        	
             var sponsorId = document.getElementById('sponsorIdInput').value;
-			var nameContainer = document.getElementById('nameContainer');
+            
+            var nameContainer = document.getElementById('nameContainer');
 			var signupbutton = document.getElementById('signupbutton');
 			var countryContainer = document.getElementById('countryContainer');
             var stateContainer = document.getElementById('stateContainer');
@@ -412,21 +414,76 @@
             var addressContainer = document.getElementById('AddressContainer');
             var dobContainer = document.getElementById('dobContainer');
 			var nextbutton = document.getElementById('nextbutton');
-			nextbutton.style.display = 'none';
-			signupbutton.style.display = 'block';
-			sponsorContainer.style.display = 'block';
-                nameContainer.style.display = 'block';
-                pincodeContainer.style.display = 'block';
-                emailContainer.style.display = 'block';
-                passwordContainer.style.display = 'block';
-                confirmPasswordContainer.style.display = 'block';
-                countryContainer.style.display = 'block';
-                stateContainer.style.display = 'block';
-                phoneContainer.style.display = 'block';
-                aadharnoContainer.style.display = 'block';
-                pannoContainer.style.display = 'block';
-                addressContainer.style.display = 'block';
-                dobContainer.style.display = 'block';
+			
+            const url = `http://localhost:8080/verify/${sponsorId}`;
+            var xhr = new XMLHttpRequest();
+            
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        const response = xhr.responseText;
+                        if (response === "" || response ==="NOT PRESENT") {
+                            //document.getElementById("errorMessage").innerText = "Sponsor ID does not exist";
+                            alert(response);
+                            
+                            sponsorContainer.style.display = 'none';
+                            nameContainer.style.display = 'none';
+                            pincodeContainer.style.display = 'none';
+                            emailContainer.style.display = 'none';
+                            passwordContainer.style.display = 'none';
+                            confirmPasswordContainer.style.display = 'none';
+                            countryContainer.style.display = 'none';
+                            stateContainer.style.display = 'none';
+                            phoneContainer.style.display = 'none';
+                            aadharnoContainer.style.display = 'none';
+                            pannoContainer.style.display = 'none';
+                            addressContainer.style.display = 'none';
+                            dobContainer.style.display = 'none';
+                        } 
+                        else {
+                        	
+                           
+                        	// window.location.href = "userProfile.html?username=" + encodeURIComponent(response);
+                        	nextbutton.style.display = 'none';
+            				signupbutton.style.display = 'block';
+            				sponsorContainer.style.display = 'block';
+                            nameContainer.style.display = 'block';
+                            pincodeContainer.style.display = 'block';
+                            emailContainer.style.display = 'block';
+                            passwordContainer.style.display = 'block';
+                            confirmPasswordContainer.style.display = 'block';
+                            countryContainer.style.display = 'block';
+                            stateContainer.style.display = 'block';
+                            phoneContainer.style.display = 'block';
+                            aadharnoContainer.style.display = 'block';
+                            pannoContainer.style.display = 'block';
+                            addressContainer.style.display = 'block';
+                            dobContainer.style.display = 'block';
+                           
+                        }
+                    } else {
+                        alert("Error: Unable to Sign Up");
+                        
+                        sponsorContainer.style.display = 'none';
+                        nameContainer.style.display = 'none';
+                        pincodeContainer.style.display = 'none';
+                        emailContainer.style.display = 'none';
+                        passwordContainer.style.display = 'none';
+                        confirmPasswordContainer.style.display = 'none';
+                        countryContainer.style.display = 'none';
+                        stateContainer.style.display = 'none';
+                        phoneContainer.style.display = 'none';
+                        aadharnoContainer.style.display = 'none';
+                        pannoContainer.style.display = 'none';
+                        addressContainer.style.display = 'none';
+                        dobContainer.style.display = 'none';
+                    }
+                }
+            };
+
+            xhr.open("GET", url, true);
+            xhr.send();
+            
         }
     </script>
 	</body>
