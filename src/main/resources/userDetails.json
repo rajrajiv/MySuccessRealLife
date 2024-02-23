@@ -1,0 +1,14 @@
+{
+	"userName": "My Sucess Real Life",
+	"status": "Active",
+	"msrlId": 123,
+	"totalUser": 10,
+	"activeUser": 5,
+	"inactiveUser": 5,
+	"totalDirect": 2,
+	"rewards": "coin",
+	"category": "Diamond",
+	"joiningDate": "14-02-2024",
+	"activationDate": "15-02-2024"
+	
+}

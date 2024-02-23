@@ -2,6 +2,8 @@ package com.msrl.mySuccessRealLife;
 
 import com.msrl.mySuccessRealLife.service.MsrlSignUpService;
 import com.msrl.mySuccessRealLife.service.MsrlUserService;
+import com.msrl.mySuccessRealLife.service.UserDetailsDashboard;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,11 +24,20 @@ public class MySuccessRealLifeController {
 
     @GetMapping("/signIn/{id}/{password}")
     @ResponseBody
-    public String signIn(@PathVariable String id, @PathVariable String password) {
-        if (null != id)
-            System.out.println("hi" + id);
-        String msg = msrlService.validateSignIn(id, password);
-        return msg;
+    public UserDetailsDashboard signIn(@PathVariable String id, @PathVariable String password) {
+    	
+//    	String userDetails = null;
+    	UserDetailsDashboard userDetails = null;
+    	
+        if (null != id && null != password) {
+            System.out.println("sighn in userID is::" + id);
+            System.out.println("sign in password is ::" + password);
+            
+            userDetails = msrlService.validateSignIn(id, password);
+            System.out.println(userDetails);
+        }
+        
+        return userDetails;
     }
 
     @GetMapping("/verify/{sponsorId}")

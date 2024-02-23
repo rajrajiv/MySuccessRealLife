@@ -31,10 +31,17 @@ public class QueryDataBase {
 
     	String query = null;
     	if("checkadhaar".equals(flow)) {
+    		System.out.println("IN CHECK ADHAARRRRRR !!!");
     		query = userConstant.checkAdhaarExist;
+    		
     	}
     	else if("verifysponsor".equals(flow) || "signin".equals(flow)) {
+    		System.out.println("IN CHECK SIGNIN/VERIFYSPONSORRRRR !!!");
     		query = userConstant.verifysponsorId;
+    	}
+    	else if("memberdetails".equals(flow)) {
+    		System.out.println("IN GET MEMBER DETAILSSSSSSS !!!");
+    		query = userConstant.getMemberDetails;
     	}
     	
     	setDataSource(dataSource);

@@ -19,6 +19,8 @@ public class UserConstant {
 	
 	public String verifysponsorId = "SELECT * FROM USER_DETAILS WHERE msrlid =?";
 	
+	public String getMemberDetails = "SELECT * FROM MEMBER_DETAILS WHERE msrlid =?";
+	
 	public String insertIntoUserDetails = "INSERT INTO `msrl`.`user_details` (`SponsorID`, "
 			+ "`DateOfBirth`, `Email`, `Password`, `UserName`, `Address`, `MobileNumber`, "
 			+ "`AdhaarNumber`, `Pan`, `Country`, `State`, `JoiningDate`, `userStatus`) "

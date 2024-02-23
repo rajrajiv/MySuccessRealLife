@@ -4,6 +4,7 @@ import com.msrl.mySuccessRealLife.configuration.DataSourceConfig;
 import com.msrl.mySuccessRealLife.constant.UserConstant;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,12 +20,23 @@ public class MsrlSignInService {
 	DataSourceConfig dataSource;
 	
 //    UserConstant user = new UserConstant();
-    String userName = null;
     
-    public String validateSignIn(String msrlId, String password) {
+    public UserDetailsDashboard validateSignIn(String msrlId, String password) {
     	
     	String fetchedPassword = null;
+        String userName = null;
+        String status = null;
+        String joiningDate = null;
+        String activationDate = null;
+        Integer totalUsers = null;
+        Integer activeUsers = null;
+        Integer inactiveUsers = null;
+        Integer totalDirectUsers = null;
+        Integer totalIndirectUsers = null;
+        String rewards = null;
+        String category = null;
     	boolean isExist = false;
+    	UserDetailsDashboard userDetailsDashboard = null;
     	ResultSet rs;
     	QueryDataBase queryDb = new QueryDataBase();
     	rs = queryDb.fetchFromDataBase(msrlId, dataSource, "signin");
@@ -44,7 +56,33 @@ public class MsrlSignInService {
 					}
 					break;
 				}
-			} catch (SQLException e) {
+				if(isExist) {
+					status = rs.getString("userstatus");
+					joiningDate = rs.getDate("joiningdate").toString();
+					
+					if(null != status && status.equalsIgnoreCase("active")) {
+						activationDate = rs.getDate("activationdate").toString();
+					}
+					rs = queryDb.fetchFromDataBase(msrlId, dataSource, "memberdetails");
+					
+					while (rs.next()) {
+						
+						totalUsers = rs.getInt("TotalUsers");
+						activeUsers = rs.getInt("ActiveUsers");
+						inactiveUsers = rs.getInt("InactiveUsers");
+						totalDirectUsers = rs.getInt("DirectUsers");
+						totalIndirectUsers = rs.getInt("IndirectUsers");
+						rewards = rs.getString("Rewards");
+						category = rs.getString("Category");
+						break;
+						
+					}
+					userDetailsDashboard = new 	UserDetailsDashboard(userName, status, msrlId, totalUsers, activeUsers, inactiveUsers, totalDirectUsers, 
+									rewards, category, joiningDate, activationDate); 
+				}
+				
+			} 
+    		catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -55,10 +93,10 @@ public class MsrlSignInService {
     		}    		
     	}
 		if(!isExist) {
-			return "INVALID USERNAME OR PASSWORD !";
+			return null;
 		}
 		else {
-			return userName;
+			return userDetailsDashboard;
 		}
     }
     
