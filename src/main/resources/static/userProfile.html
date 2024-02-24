@@ -235,27 +235,34 @@
             }
         }
  
+       
+         const urlParams = new URLSearchParams(window.location.search);
+         const name = urlParams.get('user');
+         const userNameElement = document.querySelector(".userName");
+         
+         userNameElement.innerText = name;
+         
+         function loadDataFromSession(){
+        	 var userData = window.sessionStorage.getItem('userObject');
+             return JSON.parse(userData);
+         }
+         
          function showProfile() {
-             // Replace this with your logic to fetch and display MRSL ID and Profile
-             var mrslId = '12345';
-             var profile = 'John Doe';
- 
+        	 
+        	// var userData = loadDataFromSession();
+        	//var userData = window.sessionStorage.getItem('userObject');
+ 			var myJson = JSON.parse(localStorage.myObj);
              // Create a Bootstrap modal
              var modal = new bootstrap.Modal(document.getElementById('profileModal'));
  
              // Set the content of the modal
-             document.getElementById('mrslId').textContent = 'MRSL ID: ' + mrslId;
-             document.getElementById('profileInfo').textContent = 'Profile: ' + profile;
+             document.getElementById('mrslId').innerHTML = 'MRSL ID: ' + myJson.msrlId;
+             document.getElementById('profileInfo').textContent = 'Profile: ' + name;
  
              // Show the modal
              modal.show();
          }
-         const urlParams = new URLSearchParams(window.location.search);
-        const name = urlParams.get('username');
-
-        // Selecting the element with the class 'userName'
-        const userNameElement = document.querySelector(".userName");
-        userNameElement.innerText = name;
+         
          
      </script>
     <!-- Modal HTML -->
