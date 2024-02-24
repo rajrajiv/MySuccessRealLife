@@ -61,12 +61,12 @@ public class MySuccessRealLifeController {
         return userId.toString();
 //        return "123";
     }
-
-    MsrlUserService user;
-    @GetMapping("/User")
-    public String userDetails(String sponsor_id, String name,String total_user, String active_user, String inactive_user, String total_direc,String reward, String category, String joining_date, String activation_date) {
-
-        return "Utsav";
-    }
+//
+//    MsrlUserService user;
+//    @GetMapping("/User")
+//    public String userDetails(String sponsor_id, String name,String total_user, String active_user, String inactive_user, String total_direc,String reward, String category, String joining_date, String activation_date) {
+//
+//        return "Utsav";
+//    }
 
 }

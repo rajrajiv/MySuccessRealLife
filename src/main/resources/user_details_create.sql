@@ -13,10 +13,10 @@ CREATE TABLE user_details
 	State varchar(25),
 	JoiningDate date,
 	userStatus varchar(10),
+	ActivationDate date,
 	 PRIMARY KEY(MsrlId, AdhaarNumber, Pan)
 	)
 	
-	public String insertIntoUserDetails = "INSERT INTO `msrl`.`user_details` (`SponsorID`, "
-			+ "`DateOfBirth`, `Email`, `Password`, `UserName`, `Address`, `MobileNumber`, "
-			+ "`AdhaarNumber`, `Pan`, `Country`, `State`, `JoiningDate`, `userStatus`) "
-			+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	INSERT INTO `msrl`.`member_details` 
+	(`memberId`, `MsrlId`, `TotalUsers`, `DirectUsers`, `IndirectUsers`, `ActiveUsers`, `InactiveUsers`, `Rewards`, `Category`) 
+	VALUES ('1', '1', '2', '1', '1', '1', '1', 'Coin', 'Star');
