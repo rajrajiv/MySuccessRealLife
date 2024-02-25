@@ -237,27 +237,32 @@
  
        
          const urlParams = new URLSearchParams(window.location.search);
-         const name = urlParams.get('user');
+         const user = urlParams.get('user');
          const userNameElement = document.querySelector(".userName");
+         //var recieved_json = $.parseJSON(name);
+         var sessionUserData = sessionStorage.getItem("userObject");
+         var sessionUserJson = JSON.parse(sessionUserData);
+         var localUserData = localStorage.getItem("myObj");
+         var localUserJson = JSON.parse(localUserData);
+         userNameElement.innerText = localUserJson.userName;
          
-         userNameElement.innerText = name;
-         
-         function loadDataFromSession(){
-        	 var userData = window.sessionStorage.getItem('userObject');
-             return JSON.parse(userData);
-         }
+         //var data= arr[0].split('=')["user"];
+         //function loadDataFromSession(){
+        	// var userData = window.sessionStorage.getItem('userObject');
+             //return JSON.parse(userData);
+         //}
          
          function showProfile() {
         	 
         	// var userData = loadDataFromSession();
         	//var userData = window.sessionStorage.getItem('userObject');
- 			var myJson = JSON.parse(localStorage.myObj);
+ 			//var myJson = JSON.parse(localStorage.myObj);
              // Create a Bootstrap modal
              var modal = new bootstrap.Modal(document.getElementById('profileModal'));
  
              // Set the content of the modal
-             document.getElementById('mrslId').innerHTML = 'MRSL ID: ' + myJson.msrlId;
-             document.getElementById('profileInfo').textContent = 'Profile: ' + name;
+             document.getElementById('mrslId').innerHTML = 'MRSL ID: ' + sessionUserJson;
+             document.getElementById('profileInfo').textContent = 'Profile: ' + sessionUserJson.userName;
  
              // Show the modal
              modal.show();

@@ -77,10 +77,11 @@
                             document.getElementById("errorMessage").innerText = "Invalid username or password.";
                         } 
                         else {
-                        	var myObj = JSON.parse(this.responseText);
-                        	//window.sessionStorage.setItem('userObject',myObj);
-                        	//localStorage.myObj = myObj;
-                        	window.location.href = "userProfile.html?user="+myObj.userName + encodeURIComponent(response);
+                        	var myObj = JSON.stringify(this.responseText);
+                        	window.sessionStorage.setItem('userObject',myObj);
+                        	localStorage.setItem("myObj",myObj);
+                        	window.location.href = "userProfile.html?user="+response.userName; 
+                        	//encodeURIComponent(response);
                            
                         }
                     } else {
