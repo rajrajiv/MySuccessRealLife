@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,8 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-</head>
-<style>
+
+       <style>
  body, html {
     height: 100%;
     margin: 0;
@@ -49,89 +48,303 @@
     margin-top: 10px;
 }
 </style>
+    
+    <title>MySuccessRealLife</title>
+</head>
+
 <body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="d-md-block">
+            <div class="h-100">
+                <div class="sidebar-logo">
+                    <a id="companyLogo" class="navbar-brand" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <img src="./images/companyLogo.png" alt="Company Logo" class="company-logo">
+                        <span style="color: #e9ecef;"><b> MRSL Business </b></span>
+                        
+                    </a>
+                </div>
+                <!-- Sidebar Navigation -->
+                <ul class="sidebar-nav">
+                    <li class="sidebar-item">
+                        <a href="userProfile.html" class="sidebar-link">
+                            <i class="fa-solid fa-list pe-2"></i>
+                            Dashboard
+                        </a>
+                    </li>
 
-     <!-- Navigation bar -->
-     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color: aqua;">
-        <div class="container">
-            <a class="navbar-brand" href="#top"> <!-- Added id to navigate to top -->
-                <img src="images/companyLogo.png" alt="Company Logo" class="company-logo">
-                <span class="text-dark mx-1">MySuccessRealLife</span>
-            </a>
-           
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#OneTimeKey"
+                            aria-expanded="false" aria-controls="OneTimeKey">
+                            <i class="fa-regular fa-file-lines pe-2"></i>
+                            One Time Key (OTK)
+                        </a>
+                        <ul id="OneTimeKey" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Create OTK</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">OTK History</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#Setting"
+                            aria-expanded="false" aria-controls="Setting">
+                            <i class="fa-solid fa-sliders pe-2"></i>
+                            Settings
+                        </a>
+                        <ul id="Setting" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="userSettings.html" class="sidebar-link">Edit User Details</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="KYC_details.html" class="sidebar-link">KYC</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="BankDetails.html" class="sidebar-link">Bank Details</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Generate ID Card</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#TeamDetails"
+                            aria-expanded="false" aria-controls="TeamDetails">
+                            <i class="fa-regular fa-user pe-2"></i>
+                            Team Details
+                        </a>
+                        <ul id="TeamDetails" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="levelcount.html" class="sidebar-link">Level Count</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="memberdetails.html" class="sidebar-link">Member Details</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#Wallet"
+                            aria-expanded="false" aria-controls="Wallet">
+                            <i class="fa-solid fa-share-nodes pe-2"></i>
+                            Wallet
+                        </a>
+                        <ul id="Wallet" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Payment History</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Income History</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#Welfare"
+                            aria-expanded="false" aria-controls="TeamDetails">
+                            <i class="fa-regular fa-user pe-2"></i>
+                            Welfare
+                        </a>
+                        <ul id="Welfare" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Marriage Help</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="signin.html" class="sidebar-link">Log Out</a>
+                    </li>
+                </ul>
             </div>
-        </div>
-    </nav>
+        </aside>
+        <!-- Main Component -->
+        <div class="main">
+            <nav class="navbar navbar-expand px-3 border-bottom">
+                <div class=" d-flex collapse navbar-collapse justify-content-center align-items-center"id="navbarNav">
+                    <button class="btn me-auto"  type="button" data-bs-theme="dark" onclick="toggleSidebar()">
+                        <span class="navbar-toggler-icon"></span>
+                     </button>
+                     <p class=" w-100  text-center welcome-heading" style="color: #e9ecef;">Welcome to MRSL Business </p>
+                     <span class="userName" style="color:white;"></span>
+                    <ul class="navbar-nav">
+ 
+                        <li class="nav-item">
+                            <a id="activeToggle" class="nav-link active" href="#" style="color: #e9ecef;"
+                                onclick="toggleActiveInactive()">Active</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="showProfile()">
+                                <img src="./images/PassportImage.png" alt="Company Logo" class="company-logo">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main class="content px-3 py-2">
+                <div class="container-fluid">
+                    <div class="mb-3">
+                        <!-- Edit Section -->
+                        <div class="container">
+                            <h5 class="user-detail text-decoration-underline">User Details</h5>
+                            <div class="detail-row">
+                                <div class="detail-label">Name</div>
+                                <div class="detail-value">abcdefgh rthuiogssg</div>
+                           </div>
+                    
+                            <div class="detail-row">
+                                <div class="detail-label">Aadhar No.</div>
+                                <div class="detail-value">xxxx xxxx 2233</div>
+                            </div>
+                    
+                            <div class="detail-row">
+                                <div class="detail-label">Pan No.</div>
+                                <div class="detail-value">xxxx xxxx 2233</div>
+                            </div>
+                    
+                            <div class="detail-row">
+                                <div class="detail-label">MSRL ID</div>
+                                <div class="detail-value">0000000000</div>
+                            </div>
+                    
+                            <div class="detail-row">
+                                <div class="detail-label">Sponsor's ID</div>
+                                <div class="detail-value">0000000000</div>
+                            </div>
+                    
+                            <div class="detail-row">
+                                <div class="detail-label">Address</div>
+                                <div class="detail-value">Address..........................</div>
+                                <button class="btn btn-success edit-btn">Edit</button>
+                            </div>
+                    
+                            <div class="detail-row">
+                                <div class="detail-label">E-mail</div>
+                                <div class="detail-value">ashutoshsingh2011@gmail.com</div>
+                                <button class="btn btn-success edit-btn">Edit</button>
+                            </div>
+                    
+                            <div class="detail-row">
+                                <div class="detail-label">Password</div>
+                                <div class="detail-value">**********</div>
+                                <button class="btn btn-success edit-btn">Edit</button>
+                            </div>
+                    
+                            <div class="detail-row">
+                                <div class="detail-label">Date of Birth</div>
+                                <div class="detail-value">
+                                    <label for="dob" class="form-label">DOB</label>
+                                    <input type="date" class="form-control" id="dob" name="dob" style="width: 150px;">
+                                </div>
+                                <button class="btn btn-success edit-btn">Edit</button>
+                            </div>
+                    
+                            <div class="detail-row">
+                                <div class="detail-label">Mobile No.</div>
+                                <div class="detail-value">800000000</div>
+                                <button class="btn btn-success edit-btn">Edit</button>
+                            </div>
+                            <br>
+                    
+                            <div class="text-danger delete-btn">
+                                <div>Do you want to delete your account?</div><br>
+                            </div>
+                            <button class="btn btn-danger">Delete</button>
+                        </div>
+                    
 
-    <div class="container">
-        <h5 class="user-detail text-decoration-underline">User Details</h5>
-        <div class="detail-row">
-            <div class="detail-label">Name</div>
-            <div class="detail-value">abcdefgh rthuiogssg</div>
-       </div>
 
-        <div class="detail-row">
-            <div class="detail-label">Aadhar No.</div>
-            <div class="detail-value">xxxx xxxx 2233</div>
-        </div>
 
-        <div class="detail-row">
-            <div class="detail-label">Pan No.</div>
-            <div class="detail-value">xxxx xxxx 2233</div>
-        </div>
 
-        <div class="detail-row">
-            <div class="detail-label">MSRL ID</div>
-            <div class="detail-value">0000000000</div>
-        </div>
 
-        <div class="detail-row">
-            <div class="detail-label">Sponsor's ID</div>
-            <div class="detail-value">0000000000</div>
-        </div>
 
-        <div class="detail-row">
-            <div class="detail-label">Address</div>
-            <div class="detail-value">Address..........................</div>
-            <button class="btn btn-success edit-btn">Edit</button>
+                    </div>
+                </div>
+            </main>
         </div>
-
-        <div class="detail-row">
-            <div class="detail-label">E-mail</div>
-            <div class="detail-value">ashutoshsingh2011@gmail.com</div>
-            <button class="btn btn-success edit-btn">Edit</button>
-        </div>
-
-        <div class="detail-row">
-            <div class="detail-label">Password</div>
-            <div class="detail-value">**********</div>
-            <button class="btn btn-success edit-btn">Edit</button>
-        </div>
-
-        <div class="detail-row">
-            <div class="detail-label">Date of Birth</div>
-            <div class="detail-value">
-                <label for="dob" class="form-label">DOB</label>
-                <input type="date" class="form-control" id="dob" name="dob" style="width: 150px;">
-            </div>
-            <button class="btn btn-success edit-btn">Edit</button>
-        </div>
-
-        <div class="detail-row">
-            <div class="detail-label">Mobile No.</div>
-            <div class="detail-value">800000000</div>
-            <button class="btn btn-success edit-btn">Edit</button>
-        </div>
-        <br>
-
-        <div class="text-danger delete-btn">
-            <div>Do you want to delete your account?</div><br>
-        </div>
-        <button class="btn btn-danger">Delete</button>
     </div>
+    
+     <!-- Bootstrap JavaScript (optional, if you use Bootstrap components that require JavaScript) -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Bootstrap JavaScript (optional, if you use Bootstrap components that require JavaScript) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+     <script>
+        
+         function toggleSidebar() {
+             document.getElementById('sidebar').classList.toggle('collapsed');
+         }
+ 
+         function toggleActiveInactive() {
+            var activeToggleLink = document.getElementById('activeToggle');
+
+            if (activeToggleLink.textContent === 'Active') {
+                activeToggleLink.textContent = 'Inactive';
+                activeToggleLink.classList.remove('active-button');
+                activeToggleLink.classList.add('inactive-button');
+            } else {
+                activeToggleLink.textContent = 'Active';
+                activeToggleLink.classList.remove('inactive-button');
+                activeToggleLink.classList.add('active-button');
+            }
+        }
+ 
+       
+         const urlParams = new URLSearchParams(window.location.search);
+         const user = urlParams.get('user');
+         const userNameElement = document.querySelector(".userName");
+         //var recieved_json = $.parseJSON(name);
+         var sessionUserData = sessionStorage.getItem("userObject");
+         var sessionUserJson = JSON.parse(sessionUserData);
+         var localUserData = localStorage.getItem("myObj");
+         var localUserJson = JSON.parse(localUserData);
+         userNameElement.innerText = localUserJson.userName;
+         
+         //var data= arr[0].split('=')["user"];
+         //function loadDataFromSession(){
+        	// var userData = window.sessionStorage.getItem('userObject');
+             //return JSON.parse(userData);
+         //}
+         
+         function showProfile() {
+        	 
+        	// var userData = loadDataFromSession();
+        	//var userData = window.sessionStorage.getItem('userObject');
+ 			//var myJson = JSON.parse(localStorage.myObj);
+             // Create a Bootstrap modal
+             var modal = new bootstrap.Modal(document.getElementById('profileModal'));
+ 
+             // Set the content of the modal
+             document.getElementById('mrslId').innerHTML = 'MRSL ID: ' + sessionUserJson;
+             document.getElementById('profileInfo').textContent = 'Profile: ' + sessionUserJson.userName;
+ 
+             // Show the modal
+             modal.show();
+         }
+         
+         
+     </script>
+    <!-- Modal HTML -->
+    <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileModalLabel">MRSL Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="mrslId"></p>
+                    <p id="profileInfo"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="signin.html" class="btn btn-danger" onclick="logout()">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

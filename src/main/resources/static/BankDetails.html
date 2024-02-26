@@ -1,82 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Bank Details</title>
+    <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <style>
-       body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    background-image: url('images/background-image.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 100vh; /* Set the height to 100% of the viewport height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #e9ecef;
-}
-    
-        .user-detail {
-            color: #e9ecef;
-            margin-bottom: 20px;
-        }
-    
-        .detail-row {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-    
-        .detail-label {
-            flex: 1;
-            font-weight: bold;
-        }
-    
-        .detail-value {
-            flex: 2;
-        }
-    
-        .edit-btn {
-            margin-left: 10px;
-        }
-    
-        .delete-btn {
-            margin-top: 10px;
-        }
-    
-        .navbar-brand img {
-            max-height: 40px; /* Set the maximum height for the logo */
-        }
+       .container{
+        width: 50%;
+        min-height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: beige;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+        
+       }
+       .container input{
+        border: 1px solid black;
+       }
     </style>
-    
+    <title>MySuccessRealLife</title>
 </head>
 
 <body>
-     <!-- Navigation bar -->
-     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#top"> <!-- Added id to navigate to top -->
-                <img src="images/companyLogo.png" alt="Company Logo" class="company-logo">
-                <span class="text-dark mx-1">MySuccessRealLife</span>
-            </a>
-           
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="d-md-block">
+            <div class="h-100">
+                <div class="sidebar-logo">
+                    <a id="companyLogo" class="navbar-brand" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <img src="./images/companyLogo.png" alt="Company Logo" class="company-logo">
+                        <span style="color: #e9ecef;"><b> MRSL Business </b></span>
+                        
+                    </a>
+                </div>
+                <!-- Sidebar Navigation -->
+                <ul class="sidebar-nav">
+                    <li class="sidebar-item">
+                        <a href="userProfile.html" class="sidebar-link">
+                            <i class="fa-solid fa-list pe-2"></i>
+                            Dashboard
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#OneTimeKey"
+                            aria-expanded="false" aria-controls="OneTimeKey">
+                            <i class="fa-regular fa-file-lines pe-2"></i>
+                            One Time Key (OTK)
+                        </a>
+                        <ul id="OneTimeKey" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Create OTK</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">OTK History</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#Setting"
+                            aria-expanded="false" aria-controls="Setting">
+                            <i class="fa-solid fa-sliders pe-2"></i>
+                            Settings
+                        </a>
+                        <ul id="Setting" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="userSettings.html" class="sidebar-link">Edit User Details</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="KYC_details.html" class="sidebar-link">KYC</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="BankDetails.html" class="sidebar-link">Bank Details</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Generate ID Card</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#TeamDetails"
+                            aria-expanded="false" aria-controls="TeamDetails">
+                            <i class="fa-regular fa-user pe-2"></i>
+                            Team Details
+                        </a>
+                        <ul id="TeamDetails" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="levelcount.html" class="sidebar-link">Level Count</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="memberdetails.html" class="sidebar-link">Member Details</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#Wallet"
+                            aria-expanded="false" aria-controls="Wallet">
+                            <i class="fa-solid fa-share-nodes pe-2"></i>
+                            Wallet
+                        </a>
+                        <ul id="Wallet" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Payment History</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Income History</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#Welfare"
+                            aria-expanded="false" aria-controls="TeamDetails">
+                            <i class="fa-regular fa-user pe-2"></i>
+                            Welfare
+                        </a>
+                        <ul id="Welfare" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Marriage Help</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="signin.html" class="sidebar-link">Log Out</a>
+                    </li>
+                </ul>
             </div>
-        </div>
-    </nav>
-    <br>
-
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="form-container">
-                    <h2 class="text-center mb-4">Bank Details</h2>
-
+        </aside>
+        <!-- Main Component -->
+        <div class="main">
+            <nav class="navbar navbar-expand px-3 border-bottom">
+                <div class=" d-flex collapse navbar-collapse justify-content-center align-items-center"id="navbarNav">
+                    <button class="btn me-auto"  type="button" data-bs-theme="dark" onclick="toggleSidebar()">
+                        <span class="navbar-toggler-icon"></span>
+                     </button>
+                     <p class=" w-100  text-center welcome-heading" style="color: #e9ecef;">Welcome to MRSL Business </p>
+                     <span class="userName" style="color:white;"></span>
+                    <ul class="navbar-nav">
+ 
+                        <li class="nav-item">
+                            <a id="activeToggle" class="nav-link active" href="#" style="color: #e9ecef;"
+                                onclick="toggleActiveInactive()">Active</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="showProfile()">
+                                <img src="./images/PassportImage.png" alt="Company Logo" class="company-logo">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main class="content px-3 py-2">
+                <div class="container mt-5"><br>
+                    <h2 class="mb-4">Bank Details</h2>
                     <form id="bankDetailsForm" action="/submit" method="post">
                         <div class="input-container">
                             <label class='form-label'>Account Holder Name:</label>
@@ -116,12 +204,94 @@
                             <button type="submit" class="btn btn-dark w-100 fs-5">Submit</button>
                         </div>
                     </form>
+
+
+
+
+
+
+                </div>
+            </main>
+        </div>
+    </div>
+    
+     <!-- Bootstrap JavaScript (optional, if you use Bootstrap components that require JavaScript) -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+     <script>
+        
+         function toggleSidebar() {
+             document.getElementById('sidebar').classList.toggle('collapsed');
+         }
+ 
+         function toggleActiveInactive() {
+            var activeToggleLink = document.getElementById('activeToggle');
+
+            if (activeToggleLink.textContent === 'Active') {
+                activeToggleLink.textContent = 'Inactive';
+                activeToggleLink.classList.remove('active-button');
+                activeToggleLink.classList.add('inactive-button');
+            } else {
+                activeToggleLink.textContent = 'Active';
+                activeToggleLink.classList.remove('inactive-button');
+                activeToggleLink.classList.add('active-button');
+            }
+        }
+ 
+       
+         const urlParams = new URLSearchParams(window.location.search);
+         const user = urlParams.get('user');
+         const userNameElement = document.querySelector(".userName");
+         //var recieved_json = $.parseJSON(name);
+         var sessionUserData = sessionStorage.getItem("userObject");
+         var sessionUserJson = JSON.parse(sessionUserData);
+         var localUserData = localStorage.getItem("myObj");
+         var localUserJson = JSON.parse(localUserData);
+         userNameElement.innerText = localUserJson.userName;
+         
+         //var data= arr[0].split('=')["user"];
+         //function loadDataFromSession(){
+        	// var userData = window.sessionStorage.getItem('userObject');
+             //return JSON.parse(userData);
+         //}
+         
+         function showProfile() {
+        	 
+        	// var userData = loadDataFromSession();
+        	//var userData = window.sessionStorage.getItem('userObject');
+ 			//var myJson = JSON.parse(localStorage.myObj);
+             // Create a Bootstrap modal
+             var modal = new bootstrap.Modal(document.getElementById('profileModal'));
+ 
+             // Set the content of the modal
+             document.getElementById('mrslId').innerHTML = 'MRSL ID: ' + sessionUserJson;
+             document.getElementById('profileInfo').textContent = 'Profile: ' + sessionUserJson.userName;
+ 
+             // Show the modal
+             modal.show();
+         }
+         
+         
+     </script>
+    <!-- Modal HTML -->
+    <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileModalLabel">MRSL Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="mrslId"></p>
+                    <p id="profileInfo"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="signin.html" class="btn btn-danger" onclick="logout()">Logout</a>
                 </div>
             </div>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
