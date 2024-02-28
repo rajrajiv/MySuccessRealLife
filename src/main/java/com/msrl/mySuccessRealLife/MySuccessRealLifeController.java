@@ -26,8 +26,8 @@ public class MySuccessRealLifeController {
     @ResponseBody
     public UserDetailsDashboard signIn(@PathVariable String id, @PathVariable String password) {
     	
-//    	String userDetails = null;
-    	UserDetailsDashboard userDetails = null;
+//    	UserDetailsDashboard userDetails = null;
+    	UserDetailsDashboard userDetails = new UserDetailsDashboard("My Success Real Life", "Inactive", "1", 1, 0, 1, 1, "None", "Star", "14-02-2024", null);
     	
         if (null != id && null != password) {
             System.out.println("sighn in userID is::" + id);
@@ -49,7 +49,6 @@ public class MySuccessRealLifeController {
 //    	System.out.println("Sponser Name returning is ::"+sponsorName);
         //return msrlService.verifysponsorMethod(sponsorId);
     	return "My Success Real Life";
-       
     }
 
     @PostMapping("/signUp")
