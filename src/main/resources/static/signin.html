@@ -62,18 +62,18 @@
 
     <script>
         function submitSignIn() {
-        	window.sessionStorage.setItem('msrlid',JSON.parse("1"));
-        	window.sessionStorage.setItem('status',JSON.parse("Active"));
-        	window.sessionStorage.setItem('totalUser',JSON.parse("1"));
-        	window.sessionStorage.setItem('activeUser',JSON.parse("0"));
-        	window.sessionStorage.setItem('inactiveUser',JSON.parse("1"));
-        	window.sessionStorage.setItem('totalDirect',JSON.parse("1"));
-        	window.sessionStorage.setItem('rewards',JSON.parse("None"));
-        	window.sessionStorage.setItem('category',JSON.parse("Star"));
-        	window.sessionStorage.setItem('joiningDate',JSON.parse("14-02-2024"));
-        	window.sessionStorage.setItem('activationDate',JSON.parse("14-02-2024"));
+        	window.sessionStorage.setItem('msrlid','1');
+        	window.sessionStorage.setItem('status','Active');
+        	window.sessionStorage.setItem('totalUser','1');
+        	window.sessionStorage.setItem('activeUser','0');
+        	window.sessionStorage.setItem('inactiveUser','1');
+        	window.sessionStorage.setItem('totalDirect','1');
+        	window.sessionStorage.setItem('rewards','None');
+        	window.sessionStorage.setItem('category','Star');
+        	window.sessionStorage.setItem('joiningDate','14-02-2024');
+        	window.sessionStorage.setItem('activationDate','14-02-2024');
         //	localStorage.setItem('myObj',myObj);
-        	window.location.href = "userProfile.html?user="+JSON.parse("My Success Real Life"); 
+        	window.location.href = "userProfile.html?user="+encodeURIComponent("My Success Real Life"); 
         }
     </script>
 
