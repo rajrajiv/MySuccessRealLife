@@ -9,22 +9,7 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <style>
-       .container{
-        width: 50%;
-        min-height: fit-content;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: beige;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-        
-       }
-       .container input{
-        border: 1px solid black;
-       }
+       
     </style>
     <title>MySuccessRealLife</title>
 </head>
@@ -146,7 +131,7 @@
                     <button class="btn me-auto"  type="button" data-bs-theme="dark" onclick="toggleSidebar()">
                         <span class="navbar-toggler-icon"></span>
                      </button>
-                     <p class=" w-100  text-center welcome-heading" style="color: #e9ecef;">Welcome to MRSL Business </p>
+                     <p class=" w-100  text-center welcome-heading" style="color: #e9ecef;"><b>Welcome to Rajiv Kumar Raj Payment History</b></p>
                      <span class="userName" style="color:white;"></span>
                     <ul class="navbar-nav">
  
@@ -163,53 +148,140 @@
                 </div>
             </nav>
             <main class="content px-3 py-2">
-                <div class="container mt-5"><br>
-                    <h2 class="mb-4">Bank Details</h2>
-                    <form id="bankDetailsForm" action="/submit" method="post">
-                        <div class="input-container">
-                            <label class='form-label'>Account Holder Name:</label>
-                            <input type="text" name='accountHolderName' class="form-control" placeholder="Account Holder Name" required />
+                <div class="container-fluid">
+                    <div class="mb-3">
+                        <!-- Table Section -->
+                        <div class="container mt-5" style="color: #e9ecef;" overflow-x: auto;>
+                            <div class="table-responsive">
+                                <table class="table table-dark table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">S.No</th>
+                                            <th scope="col">Transaction ID</th>
+                                            <th scope="col">Amount</th>
+                                            <th scope="col">Admin Charge</th>
+                                            <th scope="col">TDS Charge</th>
+                                            <th scope="col">Payment Amount</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Account No</th>
+                                            <th scope="col">IFSC Code</th>
+                                            <th scope="col">Payment Status</th>
+                                            <th scope="col">Recipt</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">4</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">5</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">6</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">7</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">8</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                               
+                                 <p class=" w-100  text-center welcome-heading" style="color: #e9ecef;"><b>Available Balance:- </b></p>
+                                 <p class=" w-100  text-center welcome-heading" style="color: #e9ecef;"><b>Total Income:- </b></p>
+                            </div>
                         </div>
-
-                        <div class="input-container">
-                            <label class='form-label'>Account Number:</label>
-                            <input type="text" name="accountNumber" class="form-control" placeholder="Account Number" required />
-                        </div>
-
-                        <div class="input-container">
-                            <label class='form-label'>Bank Name:</label>
-                            <input type="text" name="bankName" class="form-control" placeholder="Bank Name" required />
-                        </div>
-
-                        <div class="input-container">
-                            <label class='form-label'>Branch:</label>
-                            <input type="text" name="branch" class="form-control" placeholder="Branch" required />
-                        </div>
-
-                        <div class="input-container">
-                            <label class='form-label'>IFSC Code:</label>
-                            <input type="text" name="ifscCode" class="form-control" placeholder="IFSC Code" required />
-                        </div>
-
-
-                        <div class="input-container">
-                            <label class='form-label'>Account Type:</label>
-                            <select class="form-select" name="accountType">
-                                <option value="savings">Savings</option>
-                                <option value="current">Current</option>
-                            </select>
-                        </div>
-                        <br>
-                        <div class='mb-3 d-flex justify-content-center align-items-center'>
-                            <button type="submit" class="btn btn-dark w-100 fs-5">Submit</button>
-                        </div>
-                    </form>
-
-
-
-
-
-
+                    </div>
                 </div>
             </main>
         </div>
@@ -238,39 +310,27 @@
             }
         }
  
-       
-         const urlParams = new URLSearchParams(window.location.search);
-         const user = urlParams.get('user');
-         const userNameElement = document.querySelector(".userName");
-         //var recieved_json = $.parseJSON(name);
-         var sessionUserData = sessionStorage.getItem("userObject");
-         var sessionUserJson = JSON.parse(sessionUserData);
-         var localUserData = localStorage.getItem("myObj");
-         var localUserJson = JSON.parse(localUserData);
-         userNameElement.innerText = localUserJson.userName;
-         
-         //var data= arr[0].split('=')["user"];
-         //function loadDataFromSession(){
-        	// var userData = window.sessionStorage.getItem('userObject');
-             //return JSON.parse(userData);
-         //}
-         
          function showProfile() {
-        	 
-        	// var userData = loadDataFromSession();
-        	//var userData = window.sessionStorage.getItem('userObject');
- 			//var myJson = JSON.parse(localStorage.myObj);
+             // Replace this with your logic to fetch and display MRSL ID and Profile
+             var mrslId = '12345';
+             var profile = 'John Doe';
+ 
              // Create a Bootstrap modal
              var modal = new bootstrap.Modal(document.getElementById('profileModal'));
  
              // Set the content of the modal
-             document.getElementById('mrslId').innerHTML = 'MRSL ID: ' + sessionUserJson;
-             document.getElementById('profileInfo').textContent = 'Profile: ' + sessionUserJson.userName;
+             document.getElementById('mrslId').textContent = 'MRSL ID: ' + mrslId;
+             document.getElementById('profileInfo').textContent = 'Profile: ' + profile;
  
              // Show the modal
              modal.show();
          }
-         
+         const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('username');
+
+        // Selecting the element with the class 'userName'
+        const userNameElement = document.querySelector(".userName");
+        userNameElement.innerText = name;
          
      </script>
     <!-- Modal HTML -->
