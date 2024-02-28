@@ -77,10 +77,20 @@
                             document.getElementById("errorMessage").innerText = "Invalid username or password.";
                         } 
                         else {
-                        	var myObj = JSON.stringify(this.responseText);
-                        	window.sessionStorage.setItem('userObject',myObj);
-                        	localStorage.setItem("myObj",myObj);
-                        	window.location.href = "userProfile.html?user="+response.userName; 
+                        	//var myObj = JSON.stringify(this.responseText);
+                        	window.sessionStorage.setItem('msrlid',JSON.parse(this.responseText).msrlId);
+                        	console.log(JSON.parse(this.responseText).status);
+                        	window.sessionStorage.setItem('status',JSON.parse(this.responseText).status);
+                        	window.sessionStorage.setItem('totalUser',JSON.parse(this.responseText).totalUser);
+                        	window.sessionStorage.setItem('activeUser',JSON.parse(this.responseText).activeUser);
+                        	window.sessionStorage.setItem('inactiveUser',JSON.parse(this.responseText).inactiveUser);
+                        	window.sessionStorage.setItem('totalDirect',JSON.parse(this.responseText).totalDirect);
+                        	window.sessionStorage.setItem('rewards',JSON.parse(this.responseText).rewards);
+                        	window.sessionStorage.setItem('category',JSON.parse(this.responseText).category);
+                        	window.sessionStorage.setItem('joiningDate',JSON.parse(this.responseText).joiningDate);
+                        	window.sessionStorage.setItem('activationDate',JSON.parse(this.responseText).activationDate);
+                        //	localStorage.setItem('myObj',myObj);
+                        	window.location.href = "userProfile.html?user="+JSON.parse(this.responseText).userName; 
                         	//encodeURIComponent(response);
                            
                         }

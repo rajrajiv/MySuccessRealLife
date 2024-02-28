@@ -33,7 +33,7 @@ public class MySuccessRealLifeController {
             System.out.println("sighn in userID is::" + id);
             System.out.println("sign in password is ::" + password);
             
-            userDetails = msrlService.validateSignIn(id, password);
+            //userDetails = msrlService.validateSignIn(id, password);
             System.out.println(userDetails);
         }
         
@@ -47,7 +47,8 @@ public class MySuccessRealLifeController {
     	System.out.println("Verifying Sponsor ID ::"+sponsorId);
     	
 //    	System.out.println("Sponser Name returning is ::"+sponsorName);
-        return msrlService.verifysponsorMethod(sponsorId);
+        //return msrlService.verifysponsorMethod(sponsorId);
+    	return "My Success Real Life";
        
     }
 
@@ -58,8 +59,8 @@ public class MySuccessRealLifeController {
         
         Integer userId = signUpService.reigsterUser(signUpNode);
         System.out.println("MSRLID sending back to Page is ::"+userId);
-        return userId.toString();
-//        return "123";
+       // return userId.toString();
+       return "123";
     }
 //
 //    MsrlUserService user;
