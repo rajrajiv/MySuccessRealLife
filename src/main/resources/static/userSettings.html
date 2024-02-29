@@ -24,7 +24,7 @@
         }
 
         .edit-container {
-            width: 90%;
+            width: 100%;
             height: fit-content;
             display: flex;
             align-items: center;
@@ -35,7 +35,7 @@
         }
 
         .edit-detail {
-            width: 90%;
+            width: 100%;
             min-height: fit-content;
             background: rgb(26, 23, 23);
             padding: 30px;
@@ -54,14 +54,34 @@
         }
         .detail-label{
             font-weight: bold;
-            flex-basis: 50%;
+            flex-basis: 40%;
         }
        .detail-value{
-        flex-basis: 40%;
+        flex-basis: 50%;
        }
        .btn-danger{
         margin-top: 20px;
        }
+       .edit-btn{
+        flex-basis: 10%;
+       }
+       
+       @media only screen and (max-width: 480px) {
+        body{
+            font-size: 12px;
+
+        }
+        .edit-detail {
+            padding: 10px;
+            }
+
+        .detail-row{
+            padding: 16px;
+        }
+
+        }
+       
+		
     </style>
 
     <title>MySuccessRealLife</title>
@@ -242,7 +262,7 @@
                     <div class="detail-row">
                         <div class="detail-label">Date of Birth</div>
                         <div class="detail-value">
-                            <input type="date" class="form-control" id="dob" name="dob" style="width: 150px;">
+                            03.02.2000
                         </div>
                         <button class="btn btn-success edit-btn">Edit</button>
                     </div>

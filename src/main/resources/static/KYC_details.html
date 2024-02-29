@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <style>
        .container{
-        width: 600px;
+        width:40vw;
         min-height: fit-content;
         display: flex;
         flex-direction: column;
@@ -24,6 +24,15 @@
        }
        .container input{
         border: 1px solid black;
+       }
+       
+       
+       
+       
+       @media  only screen and (max-width:600px) {
+        .container{
+            width: 90vw;
+        }
        }
     </style>
     <title>MySuccessRealLife</title>
@@ -217,21 +226,13 @@
                         <!-- Document Verification Section -->
                         <div class="mb-3">
                             
-                            <div class="mb-3">
-                                <label for="idProof" class="form-label">ID Proof Type</label>
-                                <select class="form-select" id="idProof" required>
-                                    <option value="" disabled selected>Select ID Proof Type</option>
-                                    <option value="aadharcard">Aadhar Card</option>
-                                    <option value="pancard">Pan Card</option>
-                                    <option value="passport">Passport</option>
-                                    <option value="drivingLicense">Driving License</option>
-                                    <!-- Add more options as needed -->
-                                </select>
+                             <div class="mb-3">
+                                <label for="photo" class="form-label">Upload Aadhar</label>
+                                <input type="file" class="form-control" id="photo" accept="image/*">
                             </div>
-                
                             <div class="mb-3">
-                                <label for="idNumber" class="form-label">ID Number</label>
-                                <input type="text" class="form-control" id="idNumber" required>
+                                <label for="photo" class="form-label">Upload Pan Card</label>
+                                <input type="file" class="form-control" id="photo" accept="image/*">
                             </div>
                 
                             <!-- Add more document verification fields as needed -->

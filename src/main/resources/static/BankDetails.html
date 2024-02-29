@@ -9,8 +9,11 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <style>
+        .content{
+            width: 100%;
+        }
        .container{
-        width: 50%;
+        width:30vw;
         min-height: fit-content;
         display: flex;
         flex-direction: column;
@@ -22,8 +25,20 @@
         box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
         
        }
+       .input-container{
+        width: fit-content;
+       }
        .container input{
         border: 1px solid black;
+       }
+       
+       
+       
+       
+       @media  only screen and (max-width:600px) {
+        .container{
+            width: 90vw;
+        }
        }
     </style>
     <title>MySuccessRealLife</title>
@@ -204,12 +219,6 @@
                             <button type="submit" class="btn btn-dark w-100 fs-5">Submit</button>
                         </div>
                     </form>
-
-
-
-
-
-
                 </div>
             </main>
         </div>
