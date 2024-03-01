@@ -21,8 +21,13 @@ public class UserConstant {
 	
 	public String getMemberDetails = "SELECT * FROM MEMBER_DETAILS WHERE msrlid =?";
 	
-	public String insertIntoUserDetails = "INSERT INTO `msrl`.`user_details` (`SponsorID`, "
+	public String insertIntoUserDetails = "INSERT INTO user_details (`SponsorID`, "
 			+ "`DateOfBirth`, `Email`, `Password`, `UserName`, `Address`, `MobileNumber`, "
 			+ "`AdhaarNumber`, `Pan`, `Country`, `State`, `JoiningDate`, `userStatus`) "
 			+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	
+	public String insertIntoMemberDetails = "INSERT INTO member_details (`MsrlId`, `TotalUsers`, `DirectUsers`, "
+			+ "`IndirectUsers`, `ActiveUsers`, `InactiveUsers`, "
+			+ "`Rewards`, `Category`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
 }

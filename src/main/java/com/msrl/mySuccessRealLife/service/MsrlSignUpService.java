@@ -23,7 +23,6 @@ public class MsrlSignUpService {
 	DataSourceConfig dataSource;
 	
 	private UserRegistration userRegistration = null;
-	
 	private ResultSet rs ;
 
 	public Integer reigsterUser(JsonNode signUpNode) {
@@ -33,7 +32,7 @@ public class MsrlSignUpService {
 		try {
 			userRegistration = om.treeToValue(signUpNode, UserRegistration.class);
 			if(null != userRegistration) {
-				System.out.println("name is::"+userRegistration.userName);
+				
 				System.out.println("Adhaar number is::"+userRegistration.adhaarNumber);	
 				
 				boolean isExists = checkIfUserExists(userRegistration.adhaarNumber);

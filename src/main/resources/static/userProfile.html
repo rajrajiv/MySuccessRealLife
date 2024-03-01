@@ -258,9 +258,7 @@
             activeToggleLink.textContent = sessionStorage.getItem('status');
         }
 
-
-        const urlParams = new URLSearchParams(window.location.search);
-        const user = urlParams.get('user');
+        const user = sessionStorage.getItem('userName');
         const userNameElement = document.querySelector(".userName");
         userNameElement.innerText = user;
         document.getElementById("totalUserValue").innerText = sessionStorage.getItem('totalUser');
@@ -279,7 +277,7 @@
             var modal = new bootstrap.Modal(document.getElementById('profileModal'));
 
             // Set the content of the modal             
-            document.getElementById('mrslId').innerHTML = 'MRSL ID: ' + JSON.parse(sessionStorage.getItem('msrlid'));
+            document.getElementById('mrslId').innerHTML = 'MRSL ID: ' + sessionStorage.getItem('msrlid');
             document.getElementById('profileInfo').textContent = 'Profile: ' + user;
             modal.show();
         }

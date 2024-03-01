@@ -14,9 +14,7 @@ CREATE TABLE user_details
 	JoiningDate date,
 	userStatus varchar(10),
 	ActivationDate date,
+	userType varchar(10),
 	 PRIMARY KEY(MsrlId, AdhaarNumber, Pan)
 	)
 	
-	INSERT INTO `msrl`.`member_details` 
-	(`memberId`, `MsrlId`, `TotalUsers`, `DirectUsers`, `IndirectUsers`, `ActiveUsers`, `InactiveUsers`, `Rewards`, `Category`) 
-	VALUES ('1', '1', '2', '1', '1', '1', '1', 'Coin', 'Star');

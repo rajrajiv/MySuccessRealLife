@@ -62,18 +62,45 @@
 
     <script>
         function submitSignIn() {
-        	window.sessionStorage.setItem('msrlid','1');
-        	window.sessionStorage.setItem('status','Active');
-        	window.sessionStorage.setItem('totalUser','1');
-        	window.sessionStorage.setItem('activeUser','0');
-        	window.sessionStorage.setItem('inactiveUser','1');
-        	window.sessionStorage.setItem('totalDirect','1');
-        	window.sessionStorage.setItem('rewards','None');
-        	window.sessionStorage.setItem('category','Star');
-        	window.sessionStorage.setItem('joiningDate','14-02-2024');
-        	window.sessionStorage.setItem('activationDate','14-02-2024');
-        //	localStorage.setItem('myObj',myObj);
-        	window.location.href = "userProfile.html?user="+encodeURIComponent("My Success Real Life"); 
+            var msrlId = document.getElementById("msrlId").value;
+            var password = document.getElementById("password").value;
+
+            const url = `http://localhost:8080/signIn/${msrlId}/${password}`;
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        const response = xhr.responseText;
+                        if (response === "") {
+                            document.getElementById("errorMessage").innerText = "Invalid username or password.";
+                        } 
+                        else {
+                        	//var myObj = JSON.stringify(this.responseText);
+                        	window.sessionStorage.setItem('msrlid',JSON.parse(this.responseText).msrlId);
+                        	window.sessionStorage.setItem('userName',JSON.parse(this.responseText).userName);
+                        	window.sessionStorage.setItem('status',JSON.parse(this.responseText).status);
+                        	window.sessionStorage.setItem('totalUser',JSON.parse(this.responseText).totalUser);
+                        	window.sessionStorage.setItem('activeUser',JSON.parse(this.responseText).activeUser);
+                        	window.sessionStorage.setItem('inactiveUser',JSON.parse(this.responseText).inactiveUser);
+                        	window.sessionStorage.setItem('totalDirect',JSON.parse(this.responseText).totalDirect);
+                        	window.sessionStorage.setItem('rewards',JSON.parse(this.responseText).rewards);
+                        	window.sessionStorage.setItem('category',JSON.parse(this.responseText).category);
+                        	window.sessionStorage.setItem('joiningDate',JSON.parse(this.responseText).joiningDate);
+                        	window.sessionStorage.setItem('activationDate',JSON.parse(this.responseText).activationDate);
+                        	window.location.href = "userProfile.html?user="+sessionStorage.getItem('userName'); 
+                        	//encodeURIComponent(response);
+                           
+                        }
+                    } else {
+                        alert("Error: Unable to sign in.");
+                    }
+                }
+            };
+
+            xhr.open("GET", url, true);
+            xhr.send();
         }
     </script>
 

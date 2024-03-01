@@ -12,7 +12,6 @@ CREATE TABLE member_details
 	 PRIMARY KEY(memberId)
 )
 	
-	public String insertIntoUserDetails = "INSERT INTO `msrl`.`user_details` (`SponsorID`, "
-			+ "`DateOfBirth`, `Email`, `Password`, `UserName`, `Address`, `MobileNumber`, "
-			+ "`AdhaarNumber`, `Pan`, `Country`, `State`, `JoiningDate`, `userStatus`) "
-			+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	public String insertIntoUserDetails = "INSERT INTO msrl.member_details (`memberId`, ";
+			+ "`MsrlId`, `TotalUsers`, `DirectUsers`, `IndirectUsers`, `ActiveUsers`, `InactiveUsers`, "
+			+ "`Rewards`, `Category`) VALUES ('?', '?', '?', '?', '?', '?', '?', '?')";
