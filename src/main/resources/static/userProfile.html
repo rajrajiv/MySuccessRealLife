@@ -283,6 +283,11 @@
             document.getElementById('profileInfo').textContent = 'Profile: ' + user;
             modal.show();
         }
+        
+        // Automatically collapse the sidebar on smaller screens
+    document.addEventListener("DOMContentLoaded", function () {
+        toggleSidebar();
+    });
 
 
     </script>

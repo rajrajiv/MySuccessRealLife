@@ -331,6 +331,11 @@
         // Selecting the element with the class 'userName'
         const userNameElement = document.querySelector(".userName");
         userNameElement.innerText = name;
+        
+         // Automatically collapse the sidebar on smaller screens
+    document.addEventListener("DOMContentLoaded", function () {
+        toggleSidebar();
+    });
          
      </script>
     <!-- Modal HTML -->
