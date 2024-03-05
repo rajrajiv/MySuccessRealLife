@@ -10,42 +10,66 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <style>
-         .drop-down-container{
-            width:100vw ;
-            height: 100vh;
+        .container {
+            width: 100%;
+            height: fit-content;
             display: flex;
             align-items: center;
-            justify-content:center;
+            /* justify-content: center; */
+            color: white;
+            flex-direction: column;
+        }
+
+        .active_deactive {
+            width: 400px;
+            height: fit-content;
+            flex-direction: column;
+            color: black;
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            display: none;
+            transition: all .5s;
 
         }
-        .container-fluid{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        width:400px;
-        height:400px;
-        background-color:white;
-        color:black;
-        border-radius:10px;
+        
+        .active_deactive p {
+            margin: 0;
+            padding-bottom: 10px;
+        }
+
+         .btn-primary {
+            margin: 20px 0;
+
+        }
+
+        .active_deactive input {
+            width: 100%;
+            height: 30px;
+            border-radius: 5px;
+            outline: none;
+            border: 1px solid black;
+        }
+
+        .active_deactive select {
+            width: 100%;
+            height: 30px;
+            border-radius: 5px;
         }
         
-        .dropdown select {
-        	padding:5px;
-        	background-color:white;
-        	color:black;
-        	outline:none;
-        	border-radius:8px;
-        	width: 200px;
-        	height:40px;
-  			
-		}
-		@media only screen and (max-width: 600px) {
-  		.container-fluid {
+         @media only screen and (max-width: 600px) {
+  		.active_deactive {
     		width:300px;
-    		height:300px;
+    		height:fit-content;
+        
   		}
+        .container{
+            padding-left: 20px;
+            margin-left: 30px;
+        }
+  	}	
   		
-      
     </style>
     <title>MySuccessRealLife</title>
 </head>
@@ -67,7 +91,7 @@
                 <ul class="sidebar-nav">
                     <li class="sidebar-item">
                         <a href="userProfile.html" class="sidebar-link">
-                            <i class="fa-solid fa-list pe-2"></i>
+                            <i class=" active fa-solid fa-list pe-2"></i>
                             Dashboard
                         </a>
                     </li>
@@ -99,7 +123,7 @@
                                 <a href="userSettings.html" class="sidebar-link">Edit User Details</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="Kyc_details.html" class="sidebar-link">KYC</a>
+                                <a href="KYC_details.html" class="sidebar-link">KYC</a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="BankDetails.html" class="sidebar-link">Bank Details</a>
@@ -167,7 +191,8 @@
                     <button class="btn me-auto" type="button" data-bs-theme="dark" onclick="toggleSidebar()">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <p class=" w-100  text-center welcome-heading" style="color: #e9ecef;"> </p>
+                    <p class=" w-100  text-center welcome-heading" style="color: #e9ecef;">
+                        Admin Page</p>
                     <span class="userName" style="color:white;"></span>
                     <ul class="navbar-nav">
 
@@ -184,37 +209,62 @@
                 </div>
             </nav>
             <main class="content px-3 py-2">
-                <div class="container-fluid">
-                    <div class="mb-3 text-center">
-                        
-                            <!-- Level Section -->
-                            <h3 style="color:black">
-                                Select Level Count
-                            </h3>
+                <div class="container">
+                    <h4>Choose a Work </h4>
+                    <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown link
+                        </a>
 
-                            <div class="dropdown center">
-                                
-                                <select class="select">
-                                	<option value="0">Select Your Level</option>
-                                	<option value="1">Level 1</option>
-                                	<option value="2">Level 2</option>
-                                	<option value="3">Level 3</option>
-                                	<option value="4">Level 4</option>
-                                	<option value="5">Level 5</option>
-                                	<option value="6">Level 6</option>
-                                	<option value="7">Level 7</option>
-                                	<option value="8">Level 8</option>
-                                	<option value="9">Level 9</option>
-                                	<option value="10">Level 10</option>
-                                	
-                                </select>
-                            </div>
-                          
-                            <button type="button" class="btn btn-danger mt-3" style="color:white">Count</button>
-                            
-                           <h5 class="mt-3"style="Display:none; color:black;"> Your Level Count Is : </h5>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="#" onclick="showActionFn()">Activated/ddeactivated user</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" onclick="showPaymentsFn()">book payments</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="showUserFn()">update User detail</a></li>
+                        </ul>
                     </div>
-                    
+                    <div>
+                        <div class="active_deactive" id="showAction">
+                            <p>User Id</p>
+                            <input type="text">
+
+                            <p>Action </p>
+                            <select name="" id="">
+                                <option value="1">Activated</option>
+                                <option value="2">Deactivated</option>
+                            </select><br>
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                        <div class="active_deactive" id="showPayments">
+                            <p>User Id</p>
+                            <input type="text">
+
+
+                            <p>Date of payment</p>
+                            <input type="date" name="" id="">
+
+                            <p>amount Paid</p>
+                            <input type="text">
+                            <button class="btn btn-primary" type="submit">Confirm Payment</button>
+                        </div>
+                        <div class="active_deactive" id="showUser">
+                            <p>User Id</p>
+                            <input type="text">
+
+
+                            <p>Update</p>
+                            <select name="" id="">
+                                <option value="">user name</option>
+                                <option value="">Addhaar</option>
+                                <option value="">Pan</option>
+                                
+                            </select>
+                            <p>value</p>
+                            <input type="text">
+                            <button class="btn btn-primary" type="submit">Update</button>
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>
@@ -224,7 +274,34 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-    	
+
+            var showAction = document.getElementById("showAction");
+            var showPayments = document.getElementById("showPayments");
+            var showUser = document.getElementById("showUser");
+
+            showAction.style.display = "none";
+            showPayments.style.display = "none";
+            showUser.style.display ="none";
+           
+        function showActionFn() {
+		
+                showAction.style.display = "block";
+                showPayments.style.display="none";
+                showUser.style.display ="none";
+        }
+		function showPaymentsFn() {
+		
+                showAction.style.display = "none";
+                showPayments.style.display="block";
+                showUser.style.display ="none";
+        }
+		function showUserFn() {
+		
+                showAction.style.display = "none";
+                showPayments.style.display="none";
+                showUser.style.display ="block";
+        }
+       
 
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('collapsed');
@@ -232,44 +309,35 @@
 
         function toggleActiveInactive() {
             var activeToggleLink = document.getElementById('activeToggle');
-
-            if (activeToggleLink.textContent === 'Active') {
-                activeToggleLink.textContent = 'Inactive';
-                activeToggleLink.classList.remove('active-button');
-                activeToggleLink.classList.add('inactive-button');
-            } else {
-                activeToggleLink.textContent = 'Active';
-                activeToggleLink.classList.remove('inactive-button');
-                activeToggleLink.classList.add('active-button');
-            }
+            activeToggleLink.textContent = sessionStorage.getItem('status');
         }
 
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const user = urlParams.get('user');
+        const userNameElement = document.querySelector(".userName");
+        userNameElement.innerText = user;
+        document.getElementById("totalUserValue").innerText = sessionStorage.getItem('totalUser');
+        document.getElementById("activeUserValue").innerText = sessionStorage.getItem('activeUser');
+        document.getElementById("inactiveUserValue").innerText = sessionStorage.getItem('inactiveUser');
+        document.getElementById("totalDirectValue").innerText = sessionStorage.getItem('totalDirect');
+        document.getElementById("rewardsValue").innerText = sessionStorage.getItem('rewards');
+        document.getElementById("categoryValue").innerText = sessionStorage.getItem('category');
+        document.getElementById("joiningDateValue").innerText = sessionStorage.getItem('joiningDate');
+        document.getElementById("activationDateValue").innerText = sessionStorage.getItem('activationDate');
+
+
         function showProfile() {
-            // Replace this with your logic to fetch and display MRSL ID and Profile
-            var mrslId = '12345';
-            var profile = 'John Doe';
 
             // Create a Bootstrap modal
             var modal = new bootstrap.Modal(document.getElementById('profileModal'));
 
-            // Set the content of the modal
-            document.getElementById('mrslId').textContent = 'MRSL ID: ' + mrslId;
-            document.getElementById('profileInfo').textContent = 'Profile: ' + profile;
-
-            // Show the modal
+            // Set the content of the modal             
+            document.getElementById('mrslId').innerHTML = 'MRSL ID: ' + JSON.parse(sessionStorage.getItem('msrlid'));
+            document.getElementById('profileInfo').textContent = 'Profile: ' + user;
             modal.show();
         }
-        const urlParams = new URLSearchParams(window.location.search);
-        const name = urlParams.get('username');
 
-        // Selecting the element with the class 'userName'
-        const userNameElement = document.querySelector(".userName");
-        userNameElement.innerText = name;
-        
-         // Automatically collapse the sidebar on smaller screens
-    document.addEventListener("DOMContentLoaded", function () {
-        toggleSidebar();
-    });
 
     </script>
     <!-- Modal HTML -->
