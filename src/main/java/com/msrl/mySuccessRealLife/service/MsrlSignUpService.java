@@ -25,9 +25,9 @@ public class MsrlSignUpService {
 	private UserRegistration userRegistration = null;
 	private ResultSet rs ;
 
-	public Integer reigsterUser(JsonNode signUpNode) {
+	public String reigsterUser(JsonNode signUpNode) {
 		// TODO Auto-generated method stub
-		Integer newMsrlId = null;
+		String newMsrlId = null;
 		ObjectMapper om = new ObjectMapper();
 		try {
 			userRegistration = om.treeToValue(signUpNode, UserRegistration.class);
@@ -39,9 +39,11 @@ public class MsrlSignUpService {
 				System.out.println("Doest user already exist::"+isExists);	
 								
 				if(!isExists) {
-					newMsrlId = registerNewUser();
+					Integer msrlId = registerNewUser();
+					newMsrlId = msrlId.toString();
 				}
 				else {
+					newMsrlId = "USER WITH THIS ADHAAR ALREADY EXIST";
 					System.out.println("USER WITH THIS ADHAAR ALREADY EXIST");
 				}
 			}
@@ -68,6 +70,9 @@ public class MsrlSignUpService {
 		QueryDataBase queryDb = new QueryDataBase();
 		System.out.println("user doest not Exist !! Registering new user");
 		newMsrlId = queryDb.insertIntoDataBase(userRegistration, dataSource);
+		if(null != newMsrlId) {
+			
+		}
 		
 		if(null != queryDb) {
 			queryDb = null;

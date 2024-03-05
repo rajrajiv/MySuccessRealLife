@@ -43,7 +43,9 @@ public class MySuccessRealLifeController {
     @PostMapping("/signUp")
     public String signUp(@RequestBody JsonNode signUpNode) throws Exception
     {
-        Integer userId = signUpService.reigsterUser(signUpNode);
+    	System.out.println("JSON received is:::"+signUpNode.toString());
+        String userId = signUpService.reigsterUser(signUpNode);
+        System.out.println("returning user ID to page is:::"+userId.toString());
         return userId.toString();
       // return "123";
     }

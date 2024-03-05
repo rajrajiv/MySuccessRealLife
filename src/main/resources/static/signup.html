@@ -103,19 +103,15 @@
 															<option value="BT">Bhutan</option>
 															<option value="BR">Brazil</option>
 															<option value="IO">British Indian Ocean Territory</option>
-														  
 															<option value="KH">Cambodia</option>
 															<option value="CM">Cameroon</option>
 															<option value="CA">Canada</option>
-															
 															<option value="CF">Central African Republic</option>
-															
 															<option value="CL">Chile</option>
 															<option value="CN">China</option>
 															<option value="CX">Christmas Island</option>
 															<option value="CC">Cocos (Keeling) Islands</option>
 															<option value="CO">Colombia</option>
-														   
 															<option value="CU">Cuba</option>
 															<option value="CW">Curacao</option>
 															<option value="CY">Cyprus</option>
@@ -386,6 +382,13 @@
 									<button type="submit" id="signupbutton" class="btn btn-dark fs-5" style="width:20%" onclick = "registerUser();">SignUp</button>
 								</div>
 							</form>
+						</div>
+						<div class="mb-3 input-container" id="signupResponseContainer" style="display:none;">
+							<h2>ONE STEP CLOSER TO SUCCESS !!</h2>
+							<h3>Thank you for joining us today. Get ready for a joyful ride</h3>
+							<h5>YOUR MSRL ID IS</h5>
+							<h5 id="msrlIdValue"></h5>
+							<button type="submit" id="okayButton" class="btn btn-dark fs-5" style="width:20%" onclick = "okayFn();">Okay !</button>
 						</div>						
 					</div>
 				</div>
@@ -395,13 +398,14 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+    
         function verifySponsor() {
         	
-            var sponsorId = document.getElementById('sponsorIdInput').value;
+        	var sponsorId = document.getElementById('sponsorIdInput').value;
             
             var nameContainer = document.getElementById('nameContainer');
-			var signupbutton = document.getElementById('signupbutton');
-			var countryContainer = document.getElementById('countryContainer');
+        	var signupbutton = document.getElementById('signupbutton');
+        	var countryContainer = document.getElementById('countryContainer');
             var stateContainer = document.getElementById('stateContainer');
             var sponsorContainer = document.getElementById('sponsorContainer');
             var pincodeContainer = document.getElementById('pincodeContainer');
@@ -413,8 +417,8 @@
             var pannoContainer = document.getElementById('pan-NoContainer');
             var addressContainer = document.getElementById('AddressContainer');
             var dobContainer = document.getElementById('dobContainer');
-			var nextbutton = document.getElementById('nextbutton');
-			
+        	var nextbutton = document.getElementById('nextbutton');
+        	
             const url = `http://localhost:8080/verify/${sponsorId}`;
             var xhr = new XMLHttpRequest();
             xhr.open("GET", url, true);
@@ -485,7 +489,10 @@
             };
             
         }
-        function registerUser() {
+        function registerUser() { 
+        	
+            var verifySponsorFrom = document.getElementById('verifySponsor');
+            var signupFormform = document.getElementById('signupForm');
         	
         	var sponsorId = document.getElementById('sponsorIdInput').value;
         	var userName = document.getElementById('nameInput').value;
@@ -501,20 +508,10 @@
         	var panNumber = document.getElementById('pan-No').value;
         	var address = document.getElementById('Address').value;
         	
-        	var xhr = new XMLHttpRequest();
-        	var url = `http://localhost:8080/signUp`;
-        	xhr.open("POST", url, true);
-        	xhr.setRequestHeader("Content-Type", "application/json");
-        	
-        	xhr.onreadystatechange = function () {
         		
-        	    if (xhr.readyState === 4 && xhr.status === 200) {
-        	    	const response = xhr.responseText;
-        	    	alert("Welcome To MY SUCCESS REAL LIFE. YOUR MSRL ID IS:"+response);
-        	    	window.location.replace("./signin.html");
-					
-        	    }
-        	};
+        	var url = `http://localhost:8080/signUp`;
+        	var xhr = new XMLHttpRequest();
+        	
         	var data = JSON.stringify(
         			{
         				"SponsorID": sponsorId,
@@ -531,8 +528,35 @@
         				"Address": address
         			}
         		);
+        	        	
+        	xhr.onreadystatechange = function () {
+        		console.log(xhr.readyState);
+        		console.log(xhr.status);
+        		console.log(xhr.responseText);
+        	    if (xhr.readyState === 4 && xhr.status === 200) {
+        	    	console.log("I AM HERE");
+        	    	
+        	    	document.getElementById('signupResponseContainer').style.display = 'block';
+        	    	document.getElementById("msrlIdValue").innerText = xhr.responseText ;
+        	    	
+        	    	verifySponsorFrom.style.display = 'none';
+        	    	signupFormform.style.display = 'none';
+                    
+        	    	//window.location.replace("./signin.html");
+					
+        	    }
+        	    
+        	};
+        	xhr.open("POST", url, true);
+        	xhr.setRequestHeader("Content-Type", "application/json");
+        	
         	xhr.send(data);
 
+        }
+        function okayFn(){
+        	
+        	window.location.href = "signin.html";
+        	
         }
         
     </script>

@@ -1,6 +1,6 @@
 CREATE TABLE member_details 
 (   
-	memberId int,
+	memberId int AUTO_INCREMENT,
 	MsrlId int,
 	TotalUsers int,
 	DirectUsers int,
