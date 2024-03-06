@@ -36,10 +36,16 @@
 		
 	
 	}
-	#signupResponseContainer h1{
+	#signupResponseContainer h3{
 	color:black;
 	font-weight:bold;
 	}
+	#signupResponseContainer{
+	border:2px solid black;
+	margin-left: 20px;
+	}
+	
+
 	@media only screen and (max-width: 600px) {
   		.btn-dark {
     		width:100%;
@@ -54,7 +60,7 @@
 				<div class="col-md-6">
 					<div class="card">
 						<div class="card-body">
-							<h2 class="text-center mb-4">Create your account</h2>
+							<h2 class="text-center mb-4" id="create">Create your account</h2>
 							<form id="verifySponsor" action="/verify" method="get">
 								<div class="form-body">
 									<label class='input-labels'>SPONSOR-ID :</label>
@@ -402,12 +408,12 @@
 								</div>
 							</form>
 						</div>
-						<div class="mb-3 input-container" id="signupResponseContainer" style="display:none;">
-							<h1>ONE STEP CLOSER TO SUCCESS !!</h1>
-							<p>Thank you for joining us today. Get ready for a joyful ride</p>
-							<p>YOUR MSRL ID IS</p>
-							<p id="msrlIdValue"></p>
-							<button type="submit" id="okayButton" class="btn btn-dark fs-5"  onclick = "okayFn();">Okay !</button>
+						<div class="mb-3 input-container text-center" id="signupResponseContainer" style="display:none;">
+							<h3>ONE STEP CLOSER TO SUCCESS !!</h3>
+							<p class="mt-5">Thank you for joining us today. Get ready for a joyful ride.</p>
+							<p style="font-weight:bold; color:red">YOUR MSRL ID IS</p>
+							<p id="msrlIdValue" style="font-weight:bold; color:red"></p>
+							<button type="submit" id="okayButton" class="btn btn-danger fs-5"  onclick = "okayFn();">Okay !</button>
 						</div>						
 					</div>
 				</div>
@@ -437,7 +443,6 @@
             var addressContainer = document.getElementById('AddressContainer');
             var dobContainer = document.getElementById('dobContainer');
         	var nextbutton = document.getElementById('nextbutton');
-        	
             const url = `http://localhost:8080/verify/${sponsorId}`;
             var xhr = new XMLHttpRequest();
             xhr.open("GET", url, true);
@@ -489,7 +494,6 @@
                         }
                     } else {
                         alert("Error: Unable to Sign Up");
-                        
                         sponsorContainer.style.display = 'none';
                         nameContainer.style.display = 'none';
                         pincodeContainer.style.display = 'none';
@@ -553,7 +557,10 @@
         		console.log(xhr.status);
         		console.log(xhr.responseText);
         	    if (xhr.readyState === 4 && xhr.status === 200) {
+        	    	
         	    	console.log("I AM HERE");
+        	    	
+        	    	document.getElementById('create').style.display = 'none';
         	    	
         	    	document.getElementById('signupResponseContainer').style.display = 'block';
         	    	document.getElementById("msrlIdValue").innerText = xhr.responseText ;

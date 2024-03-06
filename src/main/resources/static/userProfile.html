@@ -13,42 +13,74 @@
         .userdetailsDiv {
             display: flex;
             justify-content: center;
-            overflow: hidden;
-            margin-left: 30px;
-            margin-right: 30px;
+            overflow:hidden;
+            
         }
 
-        .userdetailsDiv div {
-            min-height: 15vh;
+        .userdetailsDiv i {
+            font-size:4rem;
             padding: 5px;
+            color:white;
         }
 
         #divStyleBlockOne {
+        	display:flex;
+        	align-items:center;
+        	justify-content:space-between;
+       		padding:20px 40px;
             float: left;
             width: 30vw;
             margin-right: 20px;
             margin-left: 20px;
-        }
+            border-bottom:5px solid white;
+            margin-bottom:10px;
+           
+            }
+
 
         #divStyleBlockTwo {
+        	display:flex;
+        	align-items:center;
+        	justify-content:space-between;
+       		padding:20px 40px;
             overflow: hidden;
             margin-right: 20px;
+            margin-left:20px;
             width: 30vw;
+            margin-left: 20px;
+            border-bottom:5px solid white;
+            margin-bottom:10px;
         }
 
 
 
-        @media screen and (max-width: 1080px) {
+        @media screen and (max-width:1080px) {
             #divStyleBlockOne {
-                float: none;
-                margin-right: 20px;
-                width: 100vw;
+                
+                width:100vw;
+                border-radius:8px;
+                padding:10px 8px;
+                
+                flex-direction: column;
+                margin-bottom:10px;
+                
+                
             }
 
             #divStyleBlockTwo {
-                float: none;
-                margin-right: 20px;
-                width: 100vw;
+                
+                
+                width:100vw;
+                border-radius:8px;
+                padding:10px 8px;
+               
+                flex-direction: column;
+                margin-bottom:10px;
+                
+            }
+            .container-fluid{
+            	margin-left:20px;
+            	width:80vw;
             }
         }
     </style>
@@ -162,6 +194,9 @@
                     <li class="sidebar-item">
                         <a href="signin.html" class="sidebar-link">Log Out</a>
                     </li>
+                     <li class="sidebar-item">
+                        <a href="signin.html" class="sidebar-link">Admin</a>
+                    </li>
                 </ul>
             </div>
         </aside>
@@ -193,47 +228,79 @@
                     <div class="mb-3">
                         <!-- Table Section -->
                         <!-- <div class="container mt-5" style="color: #e9ecef;"> -->
-                            <div class="userdetailsDiv container-fluid">
-                                <div class=" mt-2 text-center">
-                                    <div class=" mt-1 text-center" id="divStyleBlockOne"
-                                        style="background-color: coral;">
+                            <div class=" mt-3 userdetailsDiv container-fluid">
+                                <div class=" text-center">
+                                    <div class=" text-center" id="divStyleBlockOne"
+                                    
+                                        style="background-color: #D94A4A;">
+                                        <div>
                                         <h3 id="totalUser">Total Users</h3>
                                         <h3 id="totalUserValue"></h3>
+                                        </div>
+                                        <div><i class="fa-solid fa-user"></i></div>
                                     </div>
-                                    <div class=" mt-1 text-center" id="divStyleBlockTwo"
-                                        style="background-color: #8000ff;">
+                                    <div class=" text-center" id="divStyleBlockTwo"
+                                        style="background-color: #F25D27;">
+                                        <div>
                                         <h3 id="activeUser">Active Users</h3>
                                         <h3 id="activeUserValue"></h3>
+                                        </div>
+                                        <div><i class="fa-solid fa-user"></i></div>
+                                        
                                     </div>
-                                    <div class=" mt-1 text-center" id="divStyleBlockOne"
-                                        style="background-color: #ff8000;">
+                                    <div class=" text-center" id="divStyleBlockOne"
+                                        style="background-color: #F29F05;">
+                                        <div>
                                         <h3 id="inactiveUser">Inactive users</h3>
                                         <h3 id="inactiveUserValue"></h3>
+                                        </div>
+                                        <div><i class="fa-solid fa-user"></i></div>
+                                        
                                     </div>
-                                    <div class=" mt-1 text-center" id="divStyleBlockTwo"
-                                        style="background-color: #bf4040;">
+                                    <div class=" text-center" id="divStyleBlockTwo"
+                                        style="background-color: #3A758C;">
+                                        <div>
                                         <h3 id="totalDirect">Direct users</h3>
                                         <h3 id="totalDirectValue"></h3>
+                                        </div>
+                                        <div><i class="fa-solid fa-user"></i></div>
+                                        
                                     </div>
-                                    <div class=" mt-1 text-center" id="divStyleBlockOne"
+                                    <div class=" text-center" id="divStyleBlockOne"
                                         style="background-color: #669900;">
+                                        <div>
                                         <h3 id="rewards">Rewards</h3>
                                         <h3 id="rewardsValue"></h3>
+                                        </div>
+                                        <div><i class="fa-solid fa-user"></i></div>
+                                        
                                     </div>
-                                    <div class=" mt-1 text-center" id="divStyleBlockTwo"
+                                    <div class=" text-center" id="divStyleBlockTwo"
                                         style="background-color: #990073;">
+                                        <div>
                                         <h3 id="category">Category</h3>
                                         <h3 id="categoryValue"></h3>
+                                        </div>
+                                        <div><i class="fa-solid fa-user"></i></div>
+                                        
                                     </div>
-                                    <div class=" mt-1 text-center" id="divStyleBlockOne"
-                                        style="background-color: #b3b300;">
-                                        <h3 id="joiningDate">Joining Date</h3>
-                                        <h3 id="joiningDateValue"></h3>
+                                    <div class=" text-center" id="divStyleBlockOne"
+                                        style="background-color: #A68D14;">
+                                        <div>
+                                       		<h3 id="joiningDate">Joining Date</h3>
+                                        	<h3 id="joiningDateValue"></h3>
+                                        </div>
+                                        <div><i class="fa-solid fa-user"></i></div>
+                                        
                                     </div>
-                                    <div class=" mt-1 text-center" id="divStyleBlockTwo"
-                                        style="background-color: #009933;">
+                                    <div class=" text-center" id="divStyleBlockTwo"
+                                        style="background-color: #A480F2;">
+                                        <div>
                                         <h3 id="activationDate">Activation Date</h3>
                                         <h3 id="activationDateValue"></h3>
+                                        </div>
+                                        <div><i class="fa-solid fa-user"></i></div>
+                                        
                                     </div>
                                 </div>
                             </div>
