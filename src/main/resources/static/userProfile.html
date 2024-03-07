@@ -32,7 +32,8 @@
             width: 30vw;
             margin-right: 20px;
             margin-left: 20px;
-            border-bottom:5px solid white;
+            border-bottom:8px solid white;
+            border-radius:10px;
             margin-bottom:10px;
            
             }
@@ -48,10 +49,11 @@
             margin-left:20px;
             width: 30vw;
             margin-left: 20px;
-            border-bottom:5px solid white;
+            border-bottom:8px solid white;
+            border-radius:10px;
             margin-bottom:10px;
+            
         }
-
 
 
         @media screen and (max-width:1080px) {
@@ -60,7 +62,6 @@
                 width:100vw;
                 border-radius:8px;
                 padding:10px 8px;
-                
                 flex-direction: column;
                 margin-bottom:10px;
                 
@@ -194,8 +195,9 @@
                     <li class="sidebar-item">
                         <a href="signin.html" class="sidebar-link">Log Out</a>
                     </li>
-                     <li class="sidebar-item">
-                        <a href="signin.html" class="sidebar-link">Admin</a>
+                     <hr style="color:white ; height:2px">
+                    <li class="sidebar-item">
+                        <a href="admin.html" class="sidebar-link" id="admin" type="admin"> Admin </a>
                     </li>
                 </ul>
             </div>
@@ -237,7 +239,7 @@
                                         <h3 id="totalUser">Total Users</h3>
                                         <h3 id="totalUserValue"></h3>
                                         </div>
-                                        <div><i class="fa-solid fa-user"></i></div>
+                                        <div><i class="fa-solid fa-users"></i></div>
                                     </div>
                                     <div class=" text-center" id="divStyleBlockTwo"
                                         style="background-color: #F25D27;">
@@ -245,7 +247,7 @@
                                         <h3 id="activeUser">Active Users</h3>
                                         <h3 id="activeUserValue"></h3>
                                         </div>
-                                        <div><i class="fa-solid fa-user"></i></div>
+                                        <div><i class="fa-solid fa-user-plus"></i></div>
                                         
                                     </div>
                                     <div class=" text-center" id="divStyleBlockOne"
@@ -254,7 +256,7 @@
                                         <h3 id="inactiveUser">Inactive users</h3>
                                         <h3 id="inactiveUserValue"></h3>
                                         </div>
-                                        <div><i class="fa-solid fa-user"></i></div>
+                                        <div><i class="fa-solid fa-user-minus"></i></div>
                                         
                                     </div>
                                     <div class=" text-center" id="divStyleBlockTwo"
@@ -272,7 +274,7 @@
                                         <h3 id="rewards">Rewards</h3>
                                         <h3 id="rewardsValue"></h3>
                                         </div>
-                                        <div><i class="fa-solid fa-user"></i></div>
+                                        <div><i class="fa-solid fa-award"></i></div>
                                         
                                     </div>
                                     <div class=" text-center" id="divStyleBlockTwo"
@@ -281,7 +283,7 @@
                                         <h3 id="category">Category</h3>
                                         <h3 id="categoryValue"></h3>
                                         </div>
-                                        <div><i class="fa-solid fa-user"></i></div>
+                                        <div><i class="fa-solid fa-layer-group"></i></div>
                                         
                                     </div>
                                     <div class=" text-center" id="divStyleBlockOne"
@@ -290,7 +292,7 @@
                                        		<h3 id="joiningDate">Joining Date</h3>
                                         	<h3 id="joiningDateValue"></h3>
                                         </div>
-                                        <div><i class="fa-solid fa-user"></i></div>
+                                        <div><i class="fa-regular fa-calendar-plus"></i></div>
                                         
                                     </div>
                                     <div class=" text-center" id="divStyleBlockTwo"
@@ -299,7 +301,7 @@
                                         <h3 id="activationDate">Activation Date</h3>
                                         <h3 id="activationDateValue"></h3>
                                         </div>
-                                        <div><i class="fa-solid fa-user"></i></div>
+                                        <div><i class="fa-regular fa-calendar-check"></i></div>
                                         
                                     </div>
                                 </div>

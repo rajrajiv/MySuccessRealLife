@@ -33,7 +33,12 @@
             transition: all .5s;
 
         }
-        
+        .active_deactive h4{
+        	font-size:1.5rem;
+        	font-weight: 900;
+        	margin-bottom:10px;
+        	text-align:center;
+        }
         .active_deactive p {
             margin: 0;
             padding-bottom: 10px;
@@ -181,6 +186,10 @@
                     <li class="sidebar-item">
                         <a href="signin.html" class="sidebar-link">Log Out</a>
                     </li>
+                    <hr style="color:white ; height:2px">
+                    <li class="sidebar-item">
+                        <a href="admin.html" class="sidebar-link" id="admin"> Admin </a>
+                    </li>
                 </ul>
             </div>
         </aside>
@@ -220,12 +229,14 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item" href="#" onclick="showActionFn()">Activated/ddeactivated user</a>
                             </li>
-                            <li><a class="dropdown-item" href="#" onclick="showPaymentsFn()">book payments</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="showUserFn()">update User detail</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="showPaymentsFn()">Book payments</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="showUserFn()">Update User Detail</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="showOtkFn()">Create OTK</a></li>
                         </ul>
                     </div>
                     <div>
                         <div class="active_deactive" id="showAction">
+                        	<h4>Activated/Deactivated User</h4>
                             <p>User Id</p>
                             <input type="text">
 
@@ -237,6 +248,7 @@
                             <button class="btn btn-primary" type="submit">Submit</button>
                         </div>
                         <div class="active_deactive" id="showPayments">
+                        	<h4>Book Payment</h4>
                             <p>User Id</p>
                             <input type="text">
 
@@ -244,25 +256,38 @@
                             <p>Date of payment</p>
                             <input type="date" name="" id="">
 
-                            <p>amount Paid</p>
+                            <p>Amount Paid</p>
                             <input type="text">
                             <button class="btn btn-primary" type="submit">Confirm Payment</button>
                         </div>
                         <div class="active_deactive" id="showUser">
+                        	<h4>Update User</h4>
                             <p>User Id</p>
                             <input type="text">
 
 
-                            <p>Update</p>
+                            <p>Select Update</p>
                             <select name="" id="">
-                                <option value="">user name</option>
+                                <option value="">User Name</option>
                                 <option value="">Addhaar</option>
                                 <option value="">Pan</option>
                                 
                             </select>
-                            <p>value</p>
+                            <p>Value</p>
                             <input type="text">
                             <button class="btn btn-primary" type="submit">Update</button>
+                        </div>
+                        <div class="active_deactive" id="showOtk">
+                            <h4>Create OTK</h4>
+                            <p>Enter Amount</p>
+                            <input type="text">
+
+                            <p>User Id </p>
+                            <input type="text">
+
+                            <p>Number Of OTK</p>
+                            <input type="text">
+                            <button class="btn btn-primary" type="submit">Create OTK</button>
                         </div>
                     </div>
                 </div>
@@ -278,28 +303,39 @@
             var showAction = document.getElementById("showAction");
             var showPayments = document.getElementById("showPayments");
             var showUser = document.getElementById("showUser");
-
+            var showOtk = document.getElementById("showOtk");
+			
             showAction.style.display = "none";
             showPayments.style.display = "none";
             showUser.style.display ="none";
+            showOtk.style.display ="none";
            
         function showActionFn() {
 		
                 showAction.style.display = "block";
                 showPayments.style.display="none";
                 showUser.style.display ="none";
+                showOtk.style.display ="none";
         }
 		function showPaymentsFn() {
 		
                 showAction.style.display = "none";
                 showPayments.style.display="block";
                 showUser.style.display ="none";
+                showOtk.style.display ="none";
         }
 		function showUserFn() {
 		
                 showAction.style.display = "none";
                 showPayments.style.display="none";
                 showUser.style.display ="block";
+                showOtk.style.display ="none";
+        }
+		function showOtkFn() {
+            	showAction.style.display = "none";
+            	showPayments.style.display="none";
+            	showUser.style.display ="none";
+            	showOtk.style.display ="block";
         }
        
 
