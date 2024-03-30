@@ -186,7 +186,7 @@
                     <li class="sidebar-item">
                         <a href="signin.html" class="sidebar-link">Log Out</a>
                     </li>
-                    <hr style="color:white ; height:2px">
+                    <hr style="color:white; height:2px">
                     <li class="sidebar-item">
                         <a href="admin.html" class="sidebar-link" id="admin"> Admin </a>
                     </li>
@@ -227,11 +227,13 @@
                         </a>
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="#" onclick="showActionFn()">Activated/ddeactivated user</a>
+                            <li><a class="dropdown-item" href="#" onclick="showActionFn()">Activated/deactivated user</a>
                             </li>
                             <li><a class="dropdown-item" href="#" onclick="showPaymentsFn()">Book payments</a></li>
                             <li><a class="dropdown-item" href="#" onclick="showUserFn()">Update User Detail</a></li>
                             <li><a class="dropdown-item" href="#" onclick="showOtkFn()">Create OTK</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="userListFn()">Get User List</a></li>
+                            
                         </ul>
                     </div>
                     <div>
@@ -258,7 +260,13 @@
 
                             <p>Amount Paid</p>
                             <input type="text">
-                            <button class="btn btn-primary" type="submit">Confirm Payment</button>
+                            <p>Type Of Payment </p>
+                            <select name="" id="">
+                            	<option value="1"></option>
+                                <option value="1">UPI</option>
+                                <option value="2">Cash</option>
+                            </select><br>
+                           <button class="btn btn-primary" type="submit">Confirm Payment</button>
                         </div>
                         <div class="active_deactive" id="showUser">
                         	<h4>Update User</h4>
@@ -289,6 +297,66 @@
                             <input type="text">
                             <button class="btn btn-primary" type="submit">Create OTK</button>
                         </div>
+                        
+                        <div class="active_deactive" id="userList">
+                        	<h4>User List</h4>
+                        	<table class="table table-dark table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                        	<th scope="col">Sr. No</th>
+                                            <th scope="col">Name Id</th>
+                                            <th scope="col">User Id </th>
+                                            <th scope="col">Amount </th>
+                                        </tr>
+                                    </thead>
+                                     <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            
+                                       </tr>
+                                       <tr>
+                                            <th scope="row">2</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            
+                                       </tr>
+                                       <tr>
+                                            <th scope="row">3</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            
+                                       </tr>
+                                       <tr>
+                                            <th scope="row">4</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            
+                                       </tr>
+                                       <tr>
+                                            <th scope="row">5</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            
+                                       </tr>
+                                       <tr>
+                                            <th scope="row">6</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            
+                                       </tr>
+                                    </tbody>
+                                    
+                            </table>
+                        	
+                        </div>
                     </div>
                 </div>
             </main>
@@ -304,11 +372,13 @@
             var showPayments = document.getElementById("showPayments");
             var showUser = document.getElementById("showUser");
             var showOtk = document.getElementById("showOtk");
+            var userList = document.getElementById("userList");
 			
             showAction.style.display = "none";
             showPayments.style.display = "none";
             showUser.style.display ="none";
             showOtk.style.display ="none";
+            userList.style.display="none";
            
         function showActionFn() {
 		
@@ -316,6 +386,7 @@
                 showPayments.style.display="none";
                 showUser.style.display ="none";
                 showOtk.style.display ="none";
+                userList.style.display="none";
         }
 		function showPaymentsFn() {
 		
@@ -323,6 +394,7 @@
                 showPayments.style.display="block";
                 showUser.style.display ="none";
                 showOtk.style.display ="none";
+                userList.style.display="none";
         }
 		function showUserFn() {
 		
@@ -330,13 +402,23 @@
                 showPayments.style.display="none";
                 showUser.style.display ="block";
                 showOtk.style.display ="none";
+                userList.style.display="none";
         }
 		function showOtkFn() {
             	showAction.style.display = "none";
             	showPayments.style.display="none";
             	showUser.style.display ="none";
             	showOtk.style.display ="block";
+            	userList.style.display="none";
         }
+		
+		function userListFn() {
+        	showAction.style.display = "none";
+        	showPayments.style.display="none";
+        	showUser.style.display ="none";
+        	showOtk.style.display ="none";
+        	userList.style.display="block";
+    	}
        
 
         function toggleSidebar() {
