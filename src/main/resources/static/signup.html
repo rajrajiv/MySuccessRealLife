@@ -61,7 +61,7 @@
 					<div class="card">
 						<div class="card-body">
 							<h2 class="text-center mb-4" id="create">Create your account</h2>
-							<form id="verifySponsor" action="/verify" method="get">
+							<form id="verifySponsor">
 								<div class="form-body">
 									<label class='input-labels'>SPONSOR-ID :</label>
 									<input type="text" name='sponsorid' class="form-control" id="sponsorIdInput" placeholder="sponsor-id" maxlength="10" style="width:70%" />
@@ -70,7 +70,7 @@
 									<button type="button" id="nextbutton" class="btn btn-dark fs-5 mt-2" style="width:30%" onclick = "verifySponsor();">Next</button>
 								</div>
 							</form>
-							<form id="signupForm" action="/signup" method="post">
+							<form id="signupForm">
 								<div class="mb-3 mt-3 input-container" id="sponsorContainer" style="display:none;">
 														<label class='input-labels'>Sponsor Name:</label>
 														<input type="text" name="Sponsorname" class="form-control" id="sponsorInput" placeholder="Sponsor Name" required style="width:70%" />
@@ -108,7 +108,7 @@
 														<label class='input-labels'  >Country:</label>
 														<select class="form-select" id="country" name="country" style="width:70%">
 															<option>select country</option>
-															<option value="AF">Afghanistan</option>
+															<!-- <option value="AF">Afghanistan</option>
 															<option value="AS">American Samoa</option>
 															<option value="AD">Andorra</option>
 															<option value="AO">Angola</option>
@@ -185,9 +185,9 @@
 															<option value="HN">Honduras</option>
 															<option value="HK">Hong Kong</option>
 															<option value="HU">Hungary</option>
-															<option value="IS">Iceland</option>
+															<option value="IS">Iceland</option> -->
 															<option value="IN">India</option>
-															<option value="ID">Indonesia</option>
+															<!-- <option value="ID">Indonesia</option>
 															<option value="IR">Iran, Islamic Republic of</option>
 															<option value="IQ">Iraq</option>
 															<option value="IE">Ireland</option>
@@ -335,7 +335,7 @@
 															<option value="EH">Western Sahara</option>
 															<option value="YE">Yemen</option>
 															<option value="ZM">Zambia</option>
-															<option value="ZW">Zimbabwe</option>
+															<option value="ZW">Zimbabwe</option> -->
 														</select>
 													</div>
 													<div class="mb-3 input-container" id="stateContainer" style="display:none;">
@@ -410,7 +410,7 @@
 														<input type="text" class="form-control" name="address" id="Address" placeholder="address" required style="width:70%"/>
 													</div>
 								<div>
-									<button type="submit" id="signupbutton" class="btn btn-dark fs-5" style="width:20%" onclick = "registerUser();">SignUp</button>
+									<button type="submit" id="signupbutton" class="btn btn-dark fs-5" style="width:20%" onclick = "return registerUser();">SignUp</button>
 								</div>
 							</form>
 						</div>
@@ -498,7 +498,7 @@
                             dobContainer.style.display = 'block';
                            
                         }
-                    } else {
+                    }  else {
                         alert("Error: Unable to Sign Up");
                         sponsorContainer.style.display = 'none';
                         nameContainer.style.display = 'none';
@@ -513,7 +513,24 @@
                         pannoContainer.style.display = 'none';
                         addressContainer.style.display = 'none';
                         dobContainer.style.display = 'none';
-                    }
+                    } 
+                    
+                   /*  nextbutton.style.display = 'none';
+    				signupbutton.style.display = 'block';
+    				sponsorContainer.style.display = 'block';
+    				document.getElementById('sponsorInput').value = "My Success Real Life";
+                    nameContainer.style.display = 'block';
+                    pincodeContainer.style.display = 'block';
+                    emailContainer.style.display = 'block';
+                    passwordContainer.style.display = 'block';
+                    confirmPasswordContainer.style.display = 'block';
+                    countryContainer.style.display = 'block';
+                    stateContainer.style.display = 'block';
+                    phoneContainer.style.display = 'block';
+                    aadharnoContainer.style.display = 'block';
+                    pannoContainer.style.display = 'block';
+                    addressContainer.style.display = 'block';
+                    dobContainer.style.display = 'block'; */
                 }
             };
             
@@ -578,6 +595,7 @@
         	console.log("I AM VALIDATING"+isValid);
         	
 			if(isValid ===1){
+				console.log("AM I GOING IN");
 				var url = `http://localhost:8080/signUp`;
 	        	var xhr = new XMLHttpRequest();
 	        	
@@ -599,6 +617,7 @@
 	        		);
 	        	        	
 	        	xhr.onreadystatechange = function () {
+	        		
 	        		console.log(xhr.readyState);
 	        		console.log(xhr.status);
 	        		console.log(xhr.responseText);
@@ -613,16 +632,23 @@
 	        	    	
 	        	    	verifySponsorFrom.style.display = 'none';
 	        	    	signupFormform.style.display = 'none';
+	        	    	return true;
 	                    
 	        	    	//window.location.replace("./signin.html");
 						
 	        	    }
-	        	    
+	        	    else if(xhr.readyState != 4){
+	        	    	alert("Please wait your request is processing !");
+	        	    	
+	        	    }
 	        	};
-	        	xhr.open("POST", url, true);
+	        	xhr.open("POST", url, false);
 	        	xhr.setRequestHeader("Content-Type", "application/json");
 	        	
 	        	xhr.send(data);
+			}
+			else{
+				return false;
 			}
 
         }
