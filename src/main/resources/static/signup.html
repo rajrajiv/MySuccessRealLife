@@ -78,6 +78,7 @@
 								<div class="mb-3 input-container" id="nameContainer" style="display:none;">
 														<label class='input-labels'>Name:</label>
 														<input type="text" name="name" class="form-control" id="nameInput" placeholder="Full Name" required style="width:70%" />
+														
 								</div>
 								<div class="mb-3 input-container" id="dobContainer" style="display:none;">
 														<label class='input-labels'>Date of Birth:</label>
@@ -87,6 +88,7 @@
 													<div class="mb-3 input-container" id="emailContainer" style="display:none;">
 														<label class='input-labels'>Email:</label>
 														<input type="email" name="email" class="form-control" id="emailInput" placeholder="Email" required style="width:70%" />
+														<small id = "emailError" style="color:red"></small>
 													</div>
 					
 													<div class="mb-3 input-container" id="passwordContainer" style="display:none;">
@@ -97,6 +99,7 @@
 													<div class="mb-3 input-container" id="confirm-passwordContainer" style="display:none;">
 														<label class='input-labels'>Confirm-Password:</label>
 														<input type="password" name="confirmpassword" class="form-control" id="confirm-password" placeholder="confirm-password" required style="width:70%" />
+														<small id = "passwordError" style="color:red"></small>
 													</div>
 					
 													
@@ -387,16 +390,19 @@
 													<div class="mb-3 input-container" id="phoneContainer" style="display:none;">
 														<label class='input-labels'>Mobile No:</label>
 														<input type="text" class="form-control" name="mobile" id="mobile-noInput" placeholder="mobile no" required style="width:70%" />
+														<small id = "mobileError" style="color:red" ></small>
 													</div>
 					
 													<div class="mb-3 input-container" id="Aadhar-NoContainer" style="display:none;">
 														<label class='input-labels'>Aadhar No:</label>
 														<input type="text" class="form-control" name="aadhar" id="Aadhar-No" placeholder="aadhar-no" required style="width:70%"/>
+														<small id = "adhaarError" style="color:red" ></small>
 													</div>
 					
 													<div class="mb-3 input-container" id="pan-NoContainer" style="display:none;">
 														<label class='input-labels'>Pan No:</label>
 														<input type="text" class="form-control" name="aadhar" id="pan-No" placeholder="pan-no" required style="width:70%"/>
+														<small id = "panError" style="color:red"></small>
 													</div>
 					
 													<div class="mb-3 input-container" id="AddressContainer" style="display:none;">
@@ -512,7 +518,44 @@
             };
             
         }
+        
+        function validateUser(pwd,cpwd,adhaar,panNumber,mobileNumber,email){
+        	
+        	var valid =1;
+        	
+        	console.log("I AM VALIDATING");
+        	if(mobileNumber.length != 10){
+        		document.getElementById('mobileError').innerText = "Mobile Number should be of 10 digits !";
+        		valid = 0;
+        		
+        	}
+        	else if(pwd != cpwd){
+        		document.getElementById('passwordError').innerText = "Password and Confirm password should be same !";
+        		valid = 0;
+        		
+        	}
+        	else if(adhaar.length != 12){
+        		document.getElementById('adhaarError').innerText = "Adhaar Number should be of 12 digits !";
+        		valid = 0;
+        		
+        	}
+        	else if(panNumber.length != 10){
+        		document.getElementById('panError').innerText = "Pan Number should be of 10 digits !";
+        		valid = 0;
+        		
+        	}
+        	else if(!email.includes('@')){
+        		document.getElementById('emailError').innerText = "Enter a valid email address !";;
+        		valid = 0;
+        		
+        	}
+        	return valid;
+    		
+    	}
+        	
         function registerUser() { 
+        	
+        	var isValid = 1;
         	
             var verifySponsorFrom = document.getElementById('verifySponsor');
             var signupFormform = document.getElementById('signupForm');
@@ -522,7 +565,7 @@
         	var dob = document.getElementById('dobInput').value;
         	var email = document.getElementById('emailInput').value;
         	var pwd = document.getElementById('password').value;
-        	//var cpwd = document.getElementById('confirm-password').value;
+        	var cpwd = document.getElementById('confirm-password').value;
         	var country = document.getElementById('country').value;
         	var state = document.getElementById('state').value;
         	var pincode = document.getElementById('pincodeInput').value;
@@ -531,52 +574,56 @@
         	var panNumber = document.getElementById('pan-No').value;
         	var address = document.getElementById('Address').value;
         	
-        		
-        	var url = `http://localhost:8080/signUp`;
-        	var xhr = new XMLHttpRequest();
+        	isValid = validateUser(pwd,cpwd,adhaar,panNumber,mobileNumber,email);
+        	console.log("I AM VALIDATING"+isValid);
         	
-        	var data = JSON.stringify(
-        			{
-        				"SponsorID": sponsorId,
-        				"UserName": userName,
-        				"DateOfBirth": dob,
-        				"Email": email,
-        				"Password": pwd,
-        				"Country":country,
-        				"State": state,
-        				"PinCode": pincode,
-        				"MobileNumber": mobileNumber,
-        				"AdhaarNumber": adhaar,
-        				"Pan": panNumber,
-        				"Address": address
-        			}
-        		);
-        	        	
-        	xhr.onreadystatechange = function () {
-        		console.log(xhr.readyState);
-        		console.log(xhr.status);
-        		console.log(xhr.responseText);
-        	    if (xhr.readyState === 4 && xhr.status === 200) {
-        	    	
-        	    	console.log("I AM HERE");
-        	    	
-        	    	document.getElementById('create').style.display = 'none';
-        	    	
-        	    	document.getElementById('signupResponseContainer').style.display = 'block';
-        	    	document.getElementById("msrlIdValue").innerText = xhr.responseText ;
-        	    	
-        	    	verifySponsorFrom.style.display = 'none';
-        	    	signupFormform.style.display = 'none';
-                    
-        	    	//window.location.replace("./signin.html");
-					
-        	    }
-        	    
-        	};
-        	xhr.open("POST", url, true);
-        	xhr.setRequestHeader("Content-Type", "application/json");
-        	
-        	xhr.send(data);
+			if(isValid ===1){
+				var url = `http://localhost:8080/signUp`;
+	        	var xhr = new XMLHttpRequest();
+	        	
+	        	var data = JSON.stringify(
+	        			{
+	        				"SponsorID": sponsorId,
+	        				"UserName": userName,
+	        				"DateOfBirth": dob,
+	        				"Email": email,
+	        				"Password": pwd,
+	        				"Country":country,
+	        				"State": state,
+	        				"PinCode": pincode,
+	        				"MobileNumber": mobileNumber,
+	        				"AdhaarNumber": adhaar,
+	        				"Pan": panNumber,
+	        				"Address": address
+	        			}
+	        		);
+	        	        	
+	        	xhr.onreadystatechange = function () {
+	        		console.log(xhr.readyState);
+	        		console.log(xhr.status);
+	        		console.log(xhr.responseText);
+	        	    if (xhr.readyState === 4 && xhr.status === 200) {
+	        	    	
+	        	    	console.log("I AM HERE");
+	        	    	
+	        	    	document.getElementById('create').style.display = 'none';
+	        	    	
+	        	    	document.getElementById('signupResponseContainer').style.display = 'block';
+	        	    	document.getElementById("msrlIdValue").innerText = xhr.responseText ;
+	        	    	
+	        	    	verifySponsorFrom.style.display = 'none';
+	        	    	signupFormform.style.display = 'none';
+	                    
+	        	    	//window.location.replace("./signin.html");
+						
+	        	    }
+	        	    
+	        	};
+	        	xhr.open("POST", url, true);
+	        	xhr.setRequestHeader("Content-Type", "application/json");
+	        	
+	        	xhr.send(data);
+			}
 
         }
         function okayFn(){
